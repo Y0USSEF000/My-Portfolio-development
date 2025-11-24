@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="site_title">Youssef — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Cursor red spotlight -->
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <header class="site-header container">
+    <a class="brand" href="#">
+      <span class="logo">Y</span>
+      <span class="brand-text">
+        <span data-i18n="brand_name">Youssef</span><span class="dot">.</span>
+      </span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#contact" class="btn" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="theme-toggle">
+  <button id="theme-btn">🌙 Dark</button>
+</div>
+
+
+    <div class="lang-select">
+      <button data-lang="ar">🇸🇦 Arabic</button>
+      <button data-lang="fr">🇫🇷 French</button>
+      <button data-lang="en" class="active">🇬🇧 English</button>
+      <button data-lang="es">🇪🇸 Spanish</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="display: flex;">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <p class="eyebrow" data-i18n="hero_welcome">Welcome to my portfolio</p>
+
+      <h1 data-i18n="hero_name">Youssef Dahi</h1>
+      <h1 data-i18n="hero_title">Full-Stack Web Developer</h1>
+
+      <p class="sub" data-i18n="hero_sub">
+        I craft fast, clean, and modern apps for the web & mobile.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <i class="ri-rocket-line"></i>
+          <span data-i18n="hero_view_projects">View Projects</span>
+        </a>
+        <a href="#about" class="btn btn-ghost">
+          <i class="ri-user-3-line"></i>
+          <span data-i18n="hero_about_me">About me</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="about-avatar">
+      <img src="images/img.png" alt="Youssef Avatar" class="image">
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section container2">
+    <div class="about-card">
+      <div>
+        <h2 data-i18n="about_title">About me</h2>
+        <p data-i18n="about_text">
+          I’m Youssef, a full-stack developer. I build scalable backends and delightful frontends.
+          My toolkit covers modern frameworks and clean architecture.
+        </p>
+        <ul class="tech-list" aria-label="Technologies">
+          <li title="HTML"><i class="ri-html5-line"></i> HTML</li>
+          <li title="CSS"><i class="ri-css3-line"></i> CSS</li>
+          <li title="JavaScript"><i class="ri-javascript-line"></i> JavaScript</li>
+          <li title="PHP"><i class="ri-php-line"></i> PHP</li>
+          <li title="SQL"><i class="ri-database-2-line"></i> SQL</li>
+          <li title="MongoDB"><i class="ri-database-line"></i> MongoDB</li>
+          <li title="Laravel"><i class="ri-code-s-slash-line"></i> Laravel</li>
+          <li title="Symfony"><i class="ri-braces-line"></i> Symfony</li>
+          <li title="React"><i class="ri-reactjs-line"></i> React</li>
+          <li title="Expo / React Native"><i class="ri-smartphone-line"></i> Expo</li>
+          <li title="Python"><i class="ri-python-line"></i> Python</li>
+        </ul>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat">
+          <span class="num" data-count="2">0</span>
+          <span class="label" data-i18n="stat_projects">Projects</span>
+        </div>
+        <div class="stat">
+          <span class="num" data-count="100">0</span>
+          <span class="label" data-i18n="stat_clients">Happy Clients</span>
+        </div>
+        <div class="stat">
+          <span class="num" data-count="20">0</span>
+          <span class="label" data-i18n="stat_years">Years</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section container2">
+    <div class="section-head">
+      <h2 data-i18n="projects_title">Featured Projects</h2>
+      <p class="muted" data-i18n="projects_sub">Clean UI, solid architecture, and smooth UX.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Project 1: Social Media Application -->
+      <article class="card project">
+        <div class="thumb">
+          <img src="./images/image2.png" alt="Inventory management dashboard">
+          <span class="badge">
+            <i class="ri-share-forward-line"></i>
+            <span data-i18n="project_social">Social Media</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <h3 data-i18n="social_title">Social Media Application</h3>
+          <p class="muted" data-i18n="social_desc">
+           Real-time feed, user profiles, server-side messaging, relationships between users, chat, and dating features. Built with MySql, JavaSript, and Symfony.
+          </p>
+          <div class="tags">
+            <span>Symfony</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/Y0USSEF000/Social_media_application.git" class="btn-sm">
+              <i class="ri-github-line"></i>
+              <span data-i18n="btn_code">Code</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: Gestion de Stock (Market Online) -->
+      <article class="card project">
+        <div class="thumb">
+          <img src="./images/image1.png" alt="Social media app preview">
+          <span class="badge">
+            <i class="ri-shopping-cart-2-line"></i>
+            <span data-i18n="project_stock">Gestion de Stock</span>
+          </span>
+        </div>
+        <div class="card-body">
+          <h3 data-i18n="stock_title">Gestion de Stock (Market Online)</h3>
+          <p class="muted" data-i18n="stock_desc">
+            Inventory, orders, suppliers, and analytics with role-based access. Laravel / MySQL + modern UI.
+          </p>
+          <div class="tags">
+            <span>Laravel</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JS</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/Y0USSEF000/Inventory_Management.git" class="btn-sm">
+              <i class="ri-github-line"></i>
+              <span data-i18n="btn_code">Code</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section container">
+    <div class="contact-card">
+      <h2 data-i18n="contact_title">Let’s build something</h2>
+      <p class="muted" data-i18n="contact_sub">I’m open to freelance and collaboration. Reach out:</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:dahiyoussef091@gmail.com">
+          <i class="ri-mail-line"></i>
+          <span data-i18n="email">dahiyoussef091@gmail.com</span>
+        </a>
+        <a class="btn btn-ghost" target="_blank" href="https://github.com/your-username">
+          <i class="ri-github-line"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    <p>© <span id="year"></span> <span data-i18n="footer_text">Youssef — All rights reserved.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
