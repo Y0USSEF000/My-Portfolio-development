@@ -473,10 +473,12 @@ html.light .stat {
 ========================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  gap: 40px; /* reduce gap for better balance */
   margin-top: 14px;
+  align-items: start;
 }
+
 
 .card {
   background: var(--card);
@@ -911,7 +913,7 @@ html.light .theme-toggle button {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 50%;
+  max-width: 32%;
 }
 
 .hero h1 {
