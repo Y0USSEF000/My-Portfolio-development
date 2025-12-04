@@ -354,3 +354,4 @@ window.addEventListener("scroll", () => {
     `0% ${yPos1}%, 100% ${yPos2}%`;
 });
 
+
