@@ -39,11 +39,14 @@ const I18N = {
 
     btn_code: "Code",
 
+    social_what:"The Happy Friday Auto-Sender is a Python automation tool designed to send personalized “Happy Friday” messages — including images — to friends and family every week. The program runs completely automatically and uses WhatsApp Web to deliver customized greetings at the exact time you choose.",
+
     contact_title: "Let’s build something",
     contact_sub: "I’m open to freelance and collaboration. Reach out:",
     email: "dahiyoussef091@gmail.com",
 
-    footer_text: "Youssef — All rights reserved."
+    footer_text: "Youssef — All rights reserved.",
+    social_title: 'Happy Friday messenger'
   },
 
   ar: {
@@ -82,12 +85,14 @@ const I18N = {
       "إدارة المخزون والطلبات والمورّدين والتقارير مع صلاحيات متعدّدة للمستخدمين. Laravel / MySQL مع واجهة حديثة.",
 
     btn_code: "الكود",
+    social_what: "أداة Happy Friday Auto-Sender هي أداة آلية مبنية بلغة بايثون، مصممة لإرسال رسائل “جمعة مباركة” مخصصة — مع الصور — للأصدقاء والعائلة كل أسبوع بشكل تلقائي بالكامل. يعمل البرنامج تلقائيًا ويستخدم واتساب ويب لإرسال التهاني في الوقت الذي تختاره بالضبط.",
 
     contact_title: "لننجز شيئاً معاً",
     contact_sub: "أنا متاح للعمل الحر والتعاون. تواصل معي:",
     email: "dahiyoussef091@gmail.com",
 
-    footer_text: "يوسف — جميع الحقوق محفوظة."
+    footer_text: "يوسف — جميع الحقوق محفوظة." , 
+    social_title : 'مرسال جمعة مباركة'
   },
 
   fr: {
@@ -127,13 +132,14 @@ const I18N = {
       "Gestion du stock, des commandes, des fournisseurs et des statistiques, avec rôles utilisateurs. Laravel / MySQL et interface moderne.",
 
     btn_code: "Code",
-
+    social_what: "Le Happy Friday Auto-Sender est un outil d’automatisation en Python conçu pour envoyer chaque semaine des messages personnalisés “Happy Friday” — y compris des images — à vos amis et à votre famille. Le programme fonctionne entièrement automatiquement et utilise WhatsApp Web pour livrer vos salutations personnalisées à l’heure exacte que vous choisissez.",
     contact_title: "Construisons quelque chose",
     contact_sub:
       "Je suis ouvert au freelance et aux collaborations. Contactez-moi :",
     email: "dahiyoussef091@gmail.com",
 
-    footer_text: "Youssef — Tous droits réservés."
+    footer_text: "Youssef — Tous droits réservés.",
+    social_title :"Messager du Joyeux Vendredi",
   },
 
   es: {
@@ -173,13 +179,14 @@ const I18N = {
       "Inventario, pedidos, proveedores y analíticas con acceso según roles. Laravel / MySQL y una interfaz moderna.",
 
     btn_code: "Código",
-
+     social_what: "Happy Friday Auto-Sender es una herramienta de automatización en Python diseñada para enviar mensajes personalizados de “Happy Friday” — incluyendo imágenes — a tus amigos y familiares cada semana. El programa funciona completamente de forma automática y utiliza WhatsApp Web para enviar tus saludos personalizados en el momento exacto que elijas.",
     contact_title: "Construyamos algo",
     contact_sub:
       "Estoy disponible para trabajos freelance y colaboraciones. Escríbeme:",
     email: "dahiyoussef091@gmail.com",
 
-    footer_text: "Youssef — Todos los derechos reservados."
+    footer_text: "Youssef — Todos los derechos reservados.",
+     social_title :"Mensajero de Feliz Viernes",
   }
 };
 
