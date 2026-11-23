@@ -1,357 +1,383 @@
 // =======================
-//  i18n TRANSLATIONS
+//  TRANSLATIONS
 // =======================
 const I18N = {
   en: {
-    site_title: "Youssef — Portfolio",
-    brand_name: "Youssef.",
-    nav_about: "About",
+    site_title: "Youssef Dahi — Freelance Web Developer",
+    nav_services: "Services",
     nav_projects: "Projects",
-    nav_contact: "Contact",
+    nav_process: "Process",
+    nav_about: "About",
+    nav_contact: "Hire me",
 
-    hero_welcome: "Welcome to my portfolio",
-    hero_name: "Youssef Dahi",
-    hero_title: "Full-Stack Web Developer",
-    hero_sub: "I craft fast, clean, and modern apps for the web & mobile.",
-    hero_view_projects: "View Projects",
-    hero_about_me: "About me",
+    hero_status: "Available for freelance projects",
+    hero_hi: "Hi, I'm Youssef.",
+    hero_title: "I build websites that bring you clients.",
+    hero_sub: "Freelance web developer. I design and build fast, modern websites and web apps for businesses, shops and creators — from first idea to launch.",
+    hero_cta: "Start a project",
+    hero_work: "See my work",
+    point_mobile: "Mobile-friendly",
+    point_fast: "Fast loading",
+    point_lang: "Multilingual (AR / FR / EN)",
 
-    about_title: "About me",
-    about_text:
-      "I’m Youssef, a full-stack developer. I build scalable backends and delightful frontends. My toolkit covers modern frameworks and clean architecture.",
+    services_eyebrow: "What I can do for you",
+    services_title: "Services",
+    s1_title: "Landing pages",
+    s1_desc: "One clear page to present a product, event or offer — built to turn visitors into clients.",
+    s2_title: "Business websites",
+    s2_desc: "A professional site for your shop, restaurant or company: services, gallery, map, contact and WhatsApp button.",
+    s3_title: "Web apps & dashboards",
+    s3_desc: "Custom tools with login, database and admin panel — stock management, bookings, online stores.",
+    s4_title: "Redesign & fixes",
+    s4_desc: "Make an old website modern, faster and mobile-friendly, or fix bugs in an existing one.",
 
-    stat_projects: "Projects",
-    stat_clients: "Happy Clients",
-    stat_years: "Years",
+    projects_eyebrow: "Selected work",
+    projects_title: "Projects",
+    p1_badge: "Web app",
+    p1_title: "ShopMaster — Stock & Online Market",
+    p1_desc: "Inventory, orders, suppliers and analytics with role-based access, plus a modern store front.",
+    p2_badge: "Social platform",
+    p2_title: "Social Media Application",
+    p2_desc: "News feed, user profiles, friends, real-time chat and messaging between users.",
+    p3_badge: "Automation",
+    p3_title: "Happy Friday Messenger",
+    p3_desc: "A Python tool that automatically sends personalized messages and images on WhatsApp Web at a chosen time every week.",
+    btn_code: "View code",
 
-    projects_title: "Featured Projects",
-    projects_sub: "Clean UI, solid architecture, and smooth UX.",
+    process_eyebrow: "Simple and clear",
+    process_title: "How we work together",
+    st1_title: "We talk",
+    st1_desc: "You tell me about your business and goals. I suggest a plan, a price and a deadline.",
+    st2_title: "Design",
+    st2_desc: "I prepare the look of your site. You give feedback until it feels right.",
+    st3_title: "Build",
+    st3_desc: "I build the site and send you regular updates and a preview link.",
+    st4_title: "Launch & support",
+    st4_desc: "Your site goes online. I stay available for changes and help after launch.",
 
-    project_social: "Social Media",
-    social_title: "Social Media Application",
-    social_desc:
-      "Real-time feed, user profiles, server-side messaging, relationships between users, chat, and dating features. Built with MySql, JavaSript, and Symfony.",
+    about_eyebrow: "About me",
+    about_title: "A developer who cares about your result",
+    about_text: "I'm Youssef Dahi, a web developer based in Morocco. I build complete websites — the design people see and the system behind it. I keep learning every day, and I'm currently adding mobile development with Swift to my skills.",
+    f1_title: "Full projects",
+    f1_desc: "Front-end, back-end and database",
+    f2_title: "Arabic · French · English",
+    f2_desc: "We can work in your language",
+    f3_title: "Clear communication",
+    f3_desc: "Regular updates, no surprises",
 
-    project_stock: "Gestion de Stock",
-    stock_title: "Gestion de Stock (Market Online)",
-    stock_desc:
-      "Inventory, orders, suppliers, and analytics with role-based access. Laravel / MySQL + modern UI.",
-
-    btn_code: "Code",
-
-    social_what:"The Happy Friday Auto-Sender is a Python automation tool designed to send personalized “Happy Friday” messages — including images — to friends and family every week. The program runs completely automatically and uses WhatsApp Web to deliver customized greetings at the exact time you choose.",
-
-    contact_title: "Let’s build something",
-    contact_sub: "I’m open to freelance and collaboration. Reach out:",
-    email: "dahiyoussef091@gmail.com",
-
-    footer_text: "Youssef — All rights reserved.",
-    social_title: 'Happy Friday messenger'
-  },
-
-  ar: {
-    site_title: "يوسف — معرض الأعمال",
-    brand_name: "يوسف.",
-    nav_about: "حول",
-    nav_projects: "المشاريع",
-    nav_contact: "اتصال",
-
-    hero_welcome: "مرحباً بك في معرض أعمالي",
-    hero_name: "يوسف الداحي",
-    hero_title: "مطور ويب متكامل",
-    hero_sub: "أصمّم تطبيقات سريعة ونظيفة وحديثة للويب والجوال.",
-    hero_view_projects: "عرض المشاريع",
-    hero_about_me: "معلومات عني",
-
-    about_title: "معلومات عني",
-    about_text:
-      "أنا يوسف، مطوّر ويب متكامل. أبني واجهات خلفية قابلة للتوسّع وواجهات أمامية ممتعة. أستعمل أطر عمل حديثة وتصميماً نظيفاً للمعمارية.",
-
-    stat_projects: "المشاريع",
-    stat_clients: "عملاء سعداء",
-    stat_years: "سنوات",
-
-    projects_title: "أهم المشاريع",
-    projects_sub: "واجهات نظيفة، معمارية قوية، وتجربة مستخدم سلسة.",
-
-    project_social: "تطبيق تواصل اجتماعي",
-    social_title: "تطبيق تواصل اجتماعي",
-    social_desc:
-      "خلاصة فورية، ملفات شخصية للمستخدمين، مراسلة من جانب الخادم، علاقات بين المستخدمين، دردشة وميزات للتعارف. تم تطويره باستخدام MySQL وJavaScript وSymfony.",
-
-    project_stock: "تسيير المخزون",
-    stock_title: "تسيير المخزون (متجر إلكتروني)",
-    stock_desc:
-      "إدارة المخزون والطلبات والمورّدين والتقارير مع صلاحيات متعدّدة للمستخدمين. Laravel / MySQL مع واجهة حديثة.",
-
-    btn_code: "الكود",
-    social_what: "أداة Happy Friday Auto-Sender هي أداة آلية مبنية بلغة بايثون، مصممة لإرسال رسائل “جمعة مباركة” مخصصة — مع الصور — للأصدقاء والعائلة كل أسبوع بشكل تلقائي بالكامل. يعمل البرنامج تلقائيًا ويستخدم واتساب ويب لإرسال التهاني في الوقت الذي تختاره بالضبط.",
-
-    contact_title: "لننجز شيئاً معاً",
-    contact_sub: "أنا متاح للعمل الحر والتعاون. تواصل معي:",
-    email: "dahiyoussef091@gmail.com",
-
-    footer_text: "يوسف — جميع الحقوق محفوظة." , 
-    social_title : 'مرسال جمعة مباركة'
+    contact_title: "Have a project in mind?",
+    contact_sub: "Tell me what you need — I'll reply with ideas, a price and a timeline.",
+    footer_text: "All rights reserved."
   },
 
   fr: {
-    site_title: "Youssef — Portfolio",
-    brand_name: "Youssef.",
-    nav_about: "À propos",
+    site_title: "Youssef Dahi — Développeur Web Freelance",
+    nav_services: "Services",
     nav_projects: "Projets",
-    nav_contact: "Contact",
+    nav_process: "Méthode",
+    nav_about: "À propos",
+    nav_contact: "Me contacter",
 
-    hero_welcome: "Bienvenue dans mon portfolio",
-    hero_name: "Youssef Dahi",
-    hero_title: "Développeur Web Full-Stack",
-    hero_sub:
-      "Je conçois des applications rapides, propres et modernes pour le web et le mobile.",
-    hero_view_projects: "Voir les projets",
-    hero_about_me: "À propos de moi",
+    hero_status: "Disponible pour des projets freelance",
+    hero_hi: "Salut, je suis Youssef.",
+    hero_title: "Je crée des sites web qui vous apportent des clients.",
+    hero_sub: "Développeur web freelance. Je conçois et développe des sites et applications web rapides et modernes pour les entreprises, commerces et créateurs — de l'idée jusqu'à la mise en ligne.",
+    hero_cta: "Démarrer un projet",
+    hero_work: "Voir mes projets",
+    point_mobile: "Adapté au mobile",
+    point_fast: "Chargement rapide",
+    point_lang: "Multilingue (AR / FR / EN)",
 
-    about_title: "À propos de moi",
-    about_text:
-      "Je suis Youssef, développeur full-stack. Je construis des backends scalables et des interfaces agréables. J’utilise des frameworks modernes et une architecture propre.",
+    services_eyebrow: "Ce que je peux faire pour vous",
+    services_title: "Services",
+    s1_title: "Landing pages",
+    s1_desc: "Une page claire pour présenter un produit, un événement ou une offre — pensée pour transformer les visiteurs en clients.",
+    s2_title: "Sites vitrines",
+    s2_desc: "Un site professionnel pour votre boutique, restaurant ou entreprise : services, galerie, carte, contact et bouton WhatsApp.",
+    s3_title: "Applications web & tableaux de bord",
+    s3_desc: "Des outils sur mesure avec connexion, base de données et espace admin — gestion de stock, réservations, boutiques en ligne.",
+    s4_title: "Refonte & corrections",
+    s4_desc: "Moderniser un ancien site, le rendre plus rapide et adapté au mobile, ou corriger ses bugs.",
 
-    stat_projects: "Projets",
-    stat_clients: "Clients satisfaits",
-    stat_years: "Années",
+    projects_eyebrow: "Réalisations",
+    projects_title: "Projets",
+    p1_badge: "Application web",
+    p1_title: "ShopMaster — Stock & Marché en ligne",
+    p1_desc: "Gestion du stock, des commandes, des fournisseurs et des statistiques avec rôles utilisateurs, plus une boutique moderne.",
+    p2_badge: "Réseau social",
+    p2_title: "Application de réseau social",
+    p2_desc: "Fil d'actualité, profils, amis, chat en temps réel et messagerie entre utilisateurs.",
+    p3_badge: "Automatisation",
+    p3_title: "Happy Friday Messenger",
+    p3_desc: "Un outil Python qui envoie automatiquement des messages et images personnalisés sur WhatsApp Web, chaque semaine à l'heure choisie.",
+    btn_code: "Voir le code",
 
-    projects_title: "Projets mis en avant",
-    projects_sub: "UI soignée, architecture solide et expérience fluide.",
+    process_eyebrow: "Simple et clair",
+    process_title: "Comment on travaille ensemble",
+    st1_title: "On discute",
+    st1_desc: "Vous me parlez de votre activité et de vos objectifs. Je propose un plan, un prix et un délai.",
+    st2_title: "Design",
+    st2_desc: "Je prépare l'apparence du site. Vous donnez votre avis jusqu'à ce qu'il vous plaise.",
+    st3_title: "Développement",
+    st3_desc: "Je développe le site et vous envoie des mises à jour régulières avec un lien d'aperçu.",
+    st4_title: "Mise en ligne & suivi",
+    st4_desc: "Votre site est en ligne. Je reste disponible pour les modifications et l'aide après le lancement.",
 
-    project_social: "Réseau social",
-    social_title: "Application de réseau social",
-    social_desc:
-      "Fil d’actualité en temps réel, profils utilisateurs, messagerie côté serveur, relations entre utilisateurs, chat et fonctionnalités de rencontre. Développé avec MySQL, JavaScript et Symfony.",
+    about_eyebrow: "À propos",
+    about_title: "Un développeur qui tient à votre résultat",
+    about_text: "Je suis Youssef Dahi, développeur web basé au Maroc. Je réalise des sites complets — le design que les gens voient et le système derrière. J'apprends chaque jour, et j'ajoute actuellement le développement mobile avec Swift à mes compétences.",
+    f1_title: "Projets complets",
+    f1_desc: "Front-end, back-end et base de données",
+    f2_title: "Arabe · Français · Anglais",
+    f2_desc: "On peut travailler dans votre langue",
+    f3_title: "Communication claire",
+    f3_desc: "Des nouvelles régulières, sans surprises",
 
-    project_stock: "Gestion de stock",
-    stock_title: "Gestion de stock (Marché en ligne)",
-    stock_desc:
-      "Gestion du stock, des commandes, des fournisseurs et des statistiques, avec rôles utilisateurs. Laravel / MySQL et interface moderne.",
+    contact_title: "Vous avez un projet ?",
+    contact_sub: "Dites-moi ce dont vous avez besoin — je vous réponds avec des idées, un prix et un délai.",
+    footer_text: "Tous droits réservés."
+  },
 
-    btn_code: "Code",
-    social_what: "Le Happy Friday Auto-Sender est un outil d’automatisation en Python conçu pour envoyer chaque semaine des messages personnalisés “Happy Friday” — y compris des images — à vos amis et à votre famille. Le programme fonctionne entièrement automatiquement et utilise WhatsApp Web pour livrer vos salutations personnalisées à l’heure exacte que vous choisissez.",
-    contact_title: "Construisons quelque chose",
-    contact_sub:
-      "Je suis ouvert au freelance et aux collaborations. Contactez-moi :",
-    email: "dahiyoussef091@gmail.com",
+  ar: {
+    site_title: "يوسف الداحي — مطوّر مواقع مستقل",
+    nav_services: "الخدمات",
+    nav_projects: "المشاريع",
+    nav_process: "طريقة العمل",
+    nav_about: "من أنا",
+    nav_contact: "تواصل معي",
 
-    footer_text: "Youssef — Tous droits réservés.",
-    social_title :"Messager du Joyeux Vendredi",
+    hero_status: "متاح لمشاريع العمل الحر",
+    hero_hi: "مرحباً، أنا يوسف.",
+    hero_title: "أبني مواقع تجلب لك العملاء.",
+    hero_sub: "مطوّر مواقع مستقل. أصمّم وأبني مواقع وتطبيقات ويب سريعة وحديثة للشركات والمحلات وصنّاع المحتوى — من الفكرة الأولى حتى الإطلاق.",
+    hero_cta: "ابدأ مشروعك",
+    hero_work: "شاهد أعمالي",
+    point_mobile: "متوافق مع الهاتف",
+    point_fast: "تحميل سريع",
+    point_lang: "متعدد اللغات (عربي / فرنسي / إنجليزي)",
+
+    services_eyebrow: "ماذا يمكنني أن أقدّم لك",
+    services_title: "الخدمات",
+    s1_title: "صفحات هبوط",
+    s1_desc: "صفحة واحدة واضحة لتقديم منتج أو حدث أو عرض — مصمّمة لتحويل الزوار إلى عملاء.",
+    s2_title: "مواقع للشركات والمحلات",
+    s2_desc: "موقع احترافي لمحلّك أو مطعمك أو شركتك: الخدمات، معرض صور، خريطة، تواصل وزر واتساب.",
+    s3_title: "تطبيقات ويب ولوحات تحكّم",
+    s3_desc: "أدوات حسب الطلب مع تسجيل دخول وقاعدة بيانات ولوحة إدارة — تسيير المخزون، الحجوزات، المتاجر الإلكترونية.",
+    s4_title: "تجديد وإصلاح المواقع",
+    s4_desc: "تحديث موقع قديم وجعله أسرع ومتوافقاً مع الهاتف، أو إصلاح الأخطاء في موقع موجود.",
+
+    projects_eyebrow: "أعمال مختارة",
+    projects_title: "المشاريع",
+    p1_badge: "تطبيق ويب",
+    p1_title: "ShopMaster — المخزون والمتجر الإلكتروني",
+    p1_desc: "إدارة المخزون والطلبات والمورّدين والإحصائيات مع صلاحيات للمستخدمين، وواجهة متجر حديثة.",
+    p2_badge: "منصة اجتماعية",
+    p2_title: "تطبيق تواصل اجتماعي",
+    p2_desc: "خلاصة منشورات، ملفات شخصية، أصدقاء، دردشة فورية ومراسلة بين المستخدمين.",
+    p3_badge: "أتمتة",
+    p3_title: "مرسال جمعة مباركة",
+    p3_desc: "أداة بايثون ترسل تلقائياً رسائل وصوراً مخصّصة عبر واتساب ويب في الوقت الذي تختاره كل أسبوع.",
+    btn_code: "عرض الكود",
+
+    process_eyebrow: "بسيط وواضح",
+    process_title: "كيف نعمل معاً",
+    st1_title: "نتحدّث",
+    st1_desc: "تخبرني عن نشاطك وأهدافك، وأقترح عليك خطة وسعراً وموعداً للتسليم.",
+    st2_title: "التصميم",
+    st2_desc: "أجهّز شكل موقعك، وتعطيني رأيك حتى يصبح كما تريد.",
+    st3_title: "البرمجة",
+    st3_desc: "أبني الموقع وأرسل لك تحديثات منتظمة ورابطاً للمعاينة.",
+    st4_title: "الإطلاق والمتابعة",
+    st4_desc: "يصبح موقعك على الإنترنت، وأبقى متاحاً للتعديلات والمساعدة بعد الإطلاق.",
+
+    about_eyebrow: "من أنا",
+    about_title: "مطوّر يهتمّ بنتيجتك",
+    about_text: "أنا يوسف الداحي، مطوّر مواقع من المغرب. أبني مواقع كاملة — التصميم الذي يراه الناس والنظام الذي يعمل خلفه. أتعلّم كل يوم، وأضيف حالياً تطوير تطبيقات الهاتف بلغة Swift إلى مهاراتي.",
+    f1_title: "مشاريع كاملة",
+    f1_desc: "الواجهة، الخادم وقاعدة البيانات",
+    f2_title: "العربية · الفرنسية · الإنجليزية",
+    f2_desc: "نستطيع العمل بلغتك",
+    f3_title: "تواصل واضح",
+    f3_desc: "تحديثات منتظمة بدون مفاجآت",
+
+    contact_title: "عندك مشروع في بالك؟",
+    contact_sub: "أخبرني بما تحتاجه — وسأردّ عليك بأفكار وسعر ومدة التنفيذ.",
+    footer_text: "جميع الحقوق محفوظة."
   },
 
   es: {
-    site_title: "Youssef — Portafolio",
-    brand_name: "Youssef.",
-    nav_about: "Sobre mí",
+    site_title: "Youssef Dahi — Desarrollador Web Freelance",
+    nav_services: "Servicios",
     nav_projects: "Proyectos",
-    nav_contact: "Contacto",
+    nav_process: "Proceso",
+    nav_about: "Sobre mí",
+    nav_contact: "Contrátame",
 
-    hero_welcome: "Bienvenido a mi portafolio",
-    hero_name: "Youssef Dahi",
-    hero_title: "Desarrollador Web Full-Stack",
-    hero_sub:
-      "Creo aplicaciones rápidas, limpias y modernas para la web y el móvil.",
-    hero_view_projects: "Ver proyectos",
-    hero_about_me: "Sobre mí",
+    hero_status: "Disponible para proyectos freelance",
+    hero_hi: "Hola, soy Youssef.",
+    hero_title: "Creo sitios web que te traen clientes.",
+    hero_sub: "Desarrollador web freelance. Diseño y construyo sitios y aplicaciones web rápidos y modernos para empresas, tiendas y creadores — desde la primera idea hasta el lanzamiento.",
+    hero_cta: "Empezar un proyecto",
+    hero_work: "Ver mi trabajo",
+    point_mobile: "Adaptado a móviles",
+    point_fast: "Carga rápida",
+    point_lang: "Multilingüe (AR / FR / EN)",
 
-    about_title: "Sobre mí",
-    about_text:
-      "Soy Youssef, desarrollador full-stack. Construyo backends escalables y frontends agradables. Trabajo con frameworks modernos y arquitectura limpia.",
+    services_eyebrow: "Lo que puedo hacer por ti",
+    services_title: "Servicios",
+    s1_title: "Landing pages",
+    s1_desc: "Una página clara para presentar un producto, evento u oferta — pensada para convertir visitantes en clientes.",
+    s2_title: "Webs para negocios",
+    s2_desc: "Un sitio profesional para tu tienda, restaurante o empresa: servicios, galería, mapa, contacto y botón de WhatsApp.",
+    s3_title: "Apps web y paneles",
+    s3_desc: "Herramientas a medida con login, base de datos y panel de administración — inventario, reservas, tiendas online.",
+    s4_title: "Rediseño y arreglos",
+    s4_desc: "Modernizar una web antigua, hacerla más rápida y adaptada a móviles, o corregir errores.",
 
-    stat_projects: "Proyectos",
-    stat_clients: "Clientes felices",
-    stat_years: "Años",
+    projects_eyebrow: "Trabajos seleccionados",
+    projects_title: "Proyectos",
+    p1_badge: "App web",
+    p1_title: "ShopMaster — Inventario y tienda online",
+    p1_desc: "Inventario, pedidos, proveedores y analíticas con acceso por roles, además de una tienda moderna.",
+    p2_badge: "Red social",
+    p2_title: "Aplicación de red social",
+    p2_desc: "Feed de noticias, perfiles, amigos, chat en tiempo real y mensajes entre usuarios.",
+    p3_badge: "Automatización",
+    p3_title: "Happy Friday Messenger",
+    p3_desc: "Una herramienta en Python que envía automáticamente mensajes e imágenes personalizados por WhatsApp Web a la hora elegida cada semana.",
+    btn_code: "Ver código",
 
-    projects_title: "Proyectos destacados",
-    projects_sub: "UI limpia, arquitectura sólida y UX fluida.",
+    process_eyebrow: "Simple y claro",
+    process_title: "Cómo trabajamos juntos",
+    st1_title: "Hablamos",
+    st1_desc: "Me cuentas sobre tu negocio y tus objetivos. Te propongo un plan, un precio y un plazo.",
+    st2_title: "Diseño",
+    st2_desc: "Preparo el aspecto de tu web. Me das tu opinión hasta que te guste.",
+    st3_title: "Desarrollo",
+    st3_desc: "Construyo la web y te envío avances regulares con un enlace de vista previa.",
+    st4_title: "Lanzamiento y soporte",
+    st4_desc: "Tu web sale en línea. Sigo disponible para cambios y ayuda después del lanzamiento.",
 
-    project_social: "Red social",
-    social_title: "Aplicación de red social",
-    social_desc:
-      "Feed en tiempo real, perfiles de usuario, mensajería del lado del servidor, relaciones entre usuarios, chat y funciones de citas. Desarrollado con MySQL, JavaScript y Symfony.",
+    about_eyebrow: "Sobre mí",
+    about_title: "Un desarrollador que se preocupa por tu resultado",
+    about_text: "Soy Youssef Dahi, desarrollador web en Marruecos. Construyo sitios completos — el diseño que la gente ve y el sistema que hay detrás. Aprendo cada día y ahora estoy sumando desarrollo móvil con Swift a mis habilidades.",
+    f1_title: "Proyectos completos",
+    f1_desc: "Front-end, back-end y base de datos",
+    f2_title: "Árabe · Francés · Inglés",
+    f2_desc: "Podemos trabajar en tu idioma",
+    f3_title: "Comunicación clara",
+    f3_desc: "Avances regulares, sin sorpresas",
 
-    project_stock: "Gestión de stock",
-    stock_title: "Gestión de stock (Mercado online)",
-    stock_desc:
-      "Inventario, pedidos, proveedores y analíticas con acceso según roles. Laravel / MySQL y una interfaz moderna.",
-
-    btn_code: "Código",
-     social_what: "Happy Friday Auto-Sender es una herramienta de automatización en Python diseñada para enviar mensajes personalizados de “Happy Friday” — incluyendo imágenes — a tus amigos y familiares cada semana. El programa funciona completamente de forma automática y utiliza WhatsApp Web para enviar tus saludos personalizados en el momento exacto que elijas.",
-    contact_title: "Construyamos algo",
-    contact_sub:
-      "Estoy disponible para trabajos freelance y colaboraciones. Escríbeme:",
-    email: "dahiyoussef091@gmail.com",
-
-    footer_text: "Youssef — Todos los derechos reservados.",
-     social_title :"Mensajero de Feliz Viernes",
+    contact_title: "¿Tienes un proyecto en mente?",
+    contact_sub: "Cuéntame lo que necesitas — te responderé con ideas, un precio y un plazo.",
+    footer_text: "Todos los derechos reservados."
   }
 };
 
 const RTL_LANGS = ["ar"];
 
+// Safe localStorage helpers
+const store = {
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch {} }
+};
+
 // =======================
-//  APPLY LANGUAGE
+//  LANGUAGE
 // =======================
 function applyLanguage(lang) {
-  const dict = I18N[lang] || I18N.en;
+  if (!I18N[lang]) lang = "en";
+  const dict = I18N[lang];
 
-  // Update all elements with data-i18n
   document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (!key) return;
-    const value = dict[key];
-    if (!value) return;
-    el.textContent = value;
+    const value = dict[el.dataset.i18n];
+    if (value) el.textContent = value;
   });
 
-  // Update <title>
-  if (dict.site_title) {
-    document.title = dict.site_title;
-  }
+  document.title = dict.site_title;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = RTL_LANGS.includes(lang) ? "rtl" : "ltr";
 
-  // RTL / LTR direction
-  if (RTL_LANGS.includes(lang)) {
-    document.documentElement.setAttribute("dir", "rtl");
-    document.documentElement.setAttribute("lang", "ar");
-  } else {
-    document.documentElement.setAttribute("dir", "ltr");
-    document.documentElement.setAttribute("lang", lang);
-  }
+  const select = document.getElementById("lang-select");
+  if (select) select.value = lang;
 
-  // Active button state
-  document.querySelectorAll(".lang-select button").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
+  store.set("lang", lang);
+}
 
-  // Save language
-  localStorage.setItem("lang", lang);
+function detectLanguage() {
+  const saved = store.get("lang");
+  if (saved && I18N[saved]) return saved;
+  const browser = (navigator.language || "en").slice(0, 2);
+  return I18N[browser] ? browser : "en";
+}
+
+// =======================
+//  THEME
+// =======================
+function applyTheme(theme) {
+  const light = theme === "light";
+  document.documentElement.classList.toggle("light", light);
+  const btn = document.getElementById("theme-btn");
+  if (btn) btn.innerHTML = light ? '<i class="ri-moon-line"></i>' : '<i class="ri-sun-line"></i>';
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.content = light ? "#f7f8fc" : "#07090c";
+  store.set("theme", theme);
 }
 
 // =======================
 //  INIT
 // =======================
 document.addEventListener("DOMContentLoaded", () => {
-  // Year in footer
-  const yearSpan = document.getElementById("year");
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Load saved language or default EN
-  const savedLang = localStorage.getItem("lang") || "en";
-  applyLanguage(savedLang);
+  // Language
+  applyLanguage(detectLanguage());
+  document.getElementById("lang-select").addEventListener("change", (e) => applyLanguage(e.target.value));
 
-  // Click events on language buttons
-  document.querySelectorAll(".lang-select button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.lang;
-      applyLanguage(lang);
-    });
+  // Theme
+  applyTheme(store.get("theme") || "dark");
+  document.getElementById("theme-btn").addEventListener("click", () => {
+    applyTheme(document.documentElement.classList.contains("light") ? "dark" : "light");
   });
 
-  // Red spotlight follows mouse (uses --mx / --my variables)
-  const spotlight = document.querySelector(".spotlight");
-  if (spotlight) {
-    window.addEventListener("mousemove", (e) => {
-      const x = e.clientX + "px";
-      const y = e.clientY + "px";
-      document.documentElement.style.setProperty("--mx", x);
-      document.documentElement.style.setProperty("--my", y);
-    });
-  }
+  // Mobile menu
+  const nav = document.getElementById("main-nav");
+  const menuBtn = document.getElementById("menu-btn");
+  menuBtn.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.innerHTML = open ? '<i class="ri-close-line"></i>' : '<i class="ri-menu-line"></i>';
+  });
+  nav.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.innerHTML = '<i class="ri-menu-line"></i>';
+    })
+  );
 
-  // Small hover lift for cards via JS class toggle
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("pointerenter", () =>
-      card.classList.add("is-hover")
-    );
-    card.addEventListener("pointerleave", () =>
-      card.classList.remove("is-hover")
-    );
+  // Spotlight follows the mouse
+  window.addEventListener("pointermove", (e) => {
+    document.documentElement.style.setProperty("--mx", e.clientX + "px");
+    document.documentElement.style.setProperty("--my", e.clientY + "px");
   });
 
-  // Count-up animation for stats
-  const counters = document.querySelectorAll(".num");
-  if (counters.length) {
-    const reveal = new IntersectionObserver(
+  // Reveal sections on scroll
+  const items = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const target = +el.dataset.count;
-          const duration = 1200; // ms
-          const start = performance.now();
-          const step = (t) => {
-            const p = Math.min((t - start) / duration, 1);
-            el.textContent = Math.floor(p * target);
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-          reveal.unobserve(el);
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.15 }
     );
-    counters.forEach((c) => reveal.observe(c));
-  }
-
-  // Smooth scroll for same-page links
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      const el = document.querySelector(id);
-      if (!el) return;
-      e.preventDefault();
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-});
-// ==========================
-// THEME SWITCHER (Dark/Light)
-// ==========================
-// ==========================
-// THEME SWITCHER (Dark/Light)
-// ==========================
-const themeBtn = document.getElementById("theme-btn");
-
-// Load theme from localStorage
-let savedTheme = localStorage.getItem("theme") || "dark";
-applyTheme(savedTheme);
-
-themeBtn.addEventListener("click", () => {
-  const newTheme = document.documentElement.classList.contains("light")
-    ? "dark"
-    : "light";
-
-  applyTheme(newTheme);
-});
-
-function applyTheme(theme) {
-  if (theme === "light") {
-    document.documentElement.classList.add("light");
-    themeBtn.textContent = "🌙 Dark";
+    items.forEach((el) => observer.observe(el));
   } else {
-    document.documentElement.classList.remove("light");
-    themeBtn.textContent = "☀️ Light";
+    items.forEach((el) => el.classList.add("visible"));
   }
-
-  localStorage.setItem("theme", theme);
-}
-// Background subtle scroll parallax
-window.addEventListener("scroll", () => {
-  const maxScroll =
-    document.documentElement.scrollHeight - window.innerHeight || 1;
-  const progress = window.scrollY / maxScroll; // 0 -> 1
-
-  // Move background a bit based on scroll
-  const yPos1 = progress * 20;   // first gradient
-  const yPos2 = 100 - progress * 20; // second gradient
-
-  document.body.style.backgroundPosition =
-    `0% ${yPos1}%, 100% ${yPos2}%`;
 });
-
-
