@@ -72,8 +72,22 @@
       </div>
 
       <div class="hero-visual">
-        <div class="avatar-ring">
-          <img src="images/img.webp" alt="Youssef's avatar" width="600" height="900" />
+        <div class="scene3d" id="hero-scene">
+          <div class="orbit">
+            <span class="orb" style="--i:0"><i class="ri-html5-line"></i></span>
+            <span class="orb" style="--i:1"><i class="ri-css3-line"></i></span>
+            <span class="orb" style="--i:2"><i class="ri-javascript-line"></i></span>
+            <span class="orb" style="--i:3"><i class="ri-reactjs-line"></i></span>
+            <span class="orb" style="--i:4"><i class="ri-php-line"></i></span>
+            <span class="orb" style="--i:5"><i class="ri-python-line"></i></span>
+          </div>
+          <div class="avatar-ring">
+            <img src="images/img.webp" alt="Youssef's avatar" width="600" height="900" />
+          </div>
+          <div class="cube" aria-hidden="true">
+            <span class="face f1">&lt;/&gt;</span><span class="face f2">{ }</span><span class="face f3">JS</span>
+            <span class="face f4">UI</span><span class="face f5">API</span><span class="face f6">DB</span>
+          </div>
         </div>
       </div>
     </section>
@@ -86,22 +100,22 @@
       </div>
 
       <div class="grid grid-4">
-        <article class="card service reveal">
+        <article class="card service tilt reveal">
           <div class="icon"><i class="ri-rocket-2-line"></i></div>
           <h3 data-i18n="s1_title">Landing pages</h3>
           <p class="muted" data-i18n="s1_desc">One clear page to present a product, event or offer — built to turn visitors into clients.</p>
         </article>
-        <article class="card service reveal">
+        <article class="card service tilt reveal">
           <div class="icon"><i class="ri-store-2-line"></i></div>
           <h3 data-i18n="s2_title">Business websites</h3>
           <p class="muted" data-i18n="s2_desc">A professional site for your shop, restaurant or company: services, gallery, map, contact and WhatsApp button.</p>
         </article>
-        <article class="card service reveal">
+        <article class="card service tilt reveal">
           <div class="icon"><i class="ri-dashboard-3-line"></i></div>
           <h3 data-i18n="s3_title">Web apps & dashboards</h3>
           <p class="muted" data-i18n="s3_desc">Custom tools with login, database and admin panel — stock management, bookings, online stores.</p>
         </article>
-        <article class="card service reveal">
+        <article class="card service tilt reveal">
           <div class="icon"><i class="ri-tools-line"></i></div>
           <h3 data-i18n="s4_title">Redesign & fixes</h3>
           <p class="muted" data-i18n="s4_desc">Make an old website modern, faster and mobile-friendly, or fix bugs in an existing one.</p>
@@ -114,46 +128,159 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="projects_eyebrow">Selected work</p>
         <h2 data-i18n="projects_title">Projects</h2>
+        <p class="muted" data-i18n="projects_sub">Real projects I built — websites, web apps, mobile apps and tools.</p>
       </div>
 
-      <div class="grid grid-3">
-        <article class="card project reveal">
+      <div class="filters reveal" role="tablist">
+        <button class="filter active" data-filter="all" data-i18n="filter_all">All</button>
+        <button class="filter" data-filter="web" data-i18n="filter_web">Websites &amp; web apps</button>
+        <button class="filter" data-filter="mobile" data-i18n="filter_mobile">Mobile apps</button>
+        <button class="filter" data-filter="python" data-i18n="filter_python">Python</button>
+      </div>
+
+      <div class="grid grid-3 projects-grid">
+        <article class="card project tilt reveal" data-cat="web">
           <div class="thumb">
-            <img src="images/image1.webp" alt="ShopMaster online store and stock management interface" loading="lazy" width="800" height="800" />
-            <span class="badge"><i class="ri-shopping-cart-2-line"></i><span data-i18n="p1_badge">Web app</span></span>
+            <img src="images/p-madrasti.webp" alt="Madrasti · مدرستي preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-graduation-cap-line"></i><span data-i18n="p_madrasti_badge">Learning platform</span></span>
           </div>
           <div class="card-body">
-            <h3 data-i18n="p1_title">ShopMaster — Stock & Online Market</h3>
-            <p class="muted" data-i18n="p1_desc">Inventory, orders, suppliers and analytics with role-based access, plus a modern store front.</p>
+            <h3>Madrasti · مدرستي</h3>
+            <p class="muted" data-i18n="p_madrasti_desc">A learning platform for the Moroccan school curriculum, with a teacher space (lessons, quizzes, grading) and a student space.</p>
+            <div class="tags"><span>Node.js</span><span>Express</span><span>MongoDB</span><span>JavaScript</span></div>
+            <a href="https://github.com/Y0USSEF000/madrasti" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="mobile">
+          <div class="thumb">
+            <img src="images/p-fitwolf.webp" alt="FitWolf — AI Nutrition Coach preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-heart-pulse-line"></i><span data-i18n="p_fitwolf_badge">Mobile app</span></span>
+          </div>
+          <div class="card-body">
+            <h3>FitWolf — AI Nutrition Coach</h3>
+            <p class="muted" data-i18n="p_fitwolf_desc">Snap a photo of your meal and AI estimates the macros. Daily targets, meal plans, reminders, in 5 languages.</p>
+            <div class="tags"><span>React Native</span><span>Expo</span><span>C# / ASP.NET</span><span>Gemini AI</span></div>
+            <a href="https://github.com/Y0USSEF000/FitCoach-" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="web">
+          <div class="thumb">
+            <img src="images/image1.webp" alt="ShopMaster — Stock & Online Market preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-shopping-cart-2-line"></i><span data-i18n="p_shop_badge">Web app</span></span>
+          </div>
+          <div class="card-body">
+            <h3>ShopMaster — Stock & Online Market</h3>
+            <p class="muted" data-i18n="p_shop_desc">Inventory, orders, suppliers and analytics with role-based access, plus a modern store front.</p>
             <div class="tags"><span>Laravel</span><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
             <a href="https://github.com/Y0USSEF000/Inventory_Management" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
           </div>
+          <span class="glare" aria-hidden="true"></span>
         </article>
-
-        <article class="card project reveal">
+        <article class="card project tilt reveal" data-cat="web">
           <div class="thumb">
-            <img src="images/image2.webp" alt="Social media application preview" loading="lazy" width="800" height="800" />
-            <span class="badge"><i class="ri-chat-smile-2-line"></i><span data-i18n="p2_badge">Social platform</span></span>
+            <img src="images/p-conceptdeck.webp" alt="React Native Concept Deck preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-reactjs-line"></i><span data-i18n="p_deck_badge">Interactive dashboard</span></span>
           </div>
           <div class="card-body">
-            <h3 data-i18n="p2_title">Social Media Application</h3>
-            <p class="muted" data-i18n="p2_desc">News feed, user profiles, friends, real-time chat and messaging between users.</p>
+            <h3>React Native Concept Deck</h3>
+            <p class="muted" data-i18n="p_deck_desc">An interactive dashboard that explains 14 React Native concepts with live demos in a phone frame and the code behind them.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React Native</span></div>
+            <a href="https://github.com/Y0USSEF000/react-native-concept-deck" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="web">
+          <div class="thumb">
+            <img src="images/image2.webp" alt="Social Media Application preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-chat-smile-2-line"></i><span data-i18n="p_social_badge">Social platform</span></span>
+          </div>
+          <div class="card-body">
+            <h3>Social Media Application</h3>
+            <p class="muted" data-i18n="p_social_desc">News feed, user profiles, friends, real-time chat and messaging between users.</p>
             <div class="tags"><span>Symfony</span><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
             <a href="https://github.com/Y0USSEF000/Social_media_application" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
           </div>
+          <span class="glare" aria-hidden="true"></span>
         </article>
-
-        <article class="card project reveal">
+        <article class="card project tilt reveal" data-cat="mobile">
           <div class="thumb">
-            <img src="images/image3.webp" alt="Happy Friday Messenger automation tool" loading="lazy" width="800" height="800" />
-            <span class="badge"><i class="ri-robot-2-line"></i><span data-i18n="p3_badge">Automation</span></span>
+            <img src="images/p-akhbar.webp" alt="Akhbar 24 · أخبار 24 preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-newspaper-line"></i><span data-i18n="p_akhbar_badge">Mobile app</span></span>
           </div>
           <div class="card-body">
-            <h3 data-i18n="p3_title">Happy Friday Messenger</h3>
-            <p class="muted" data-i18n="p3_desc">A Python tool that automatically sends personalized messages and images on WhatsApp Web at a chosen time every week.</p>
+            <h3>Akhbar 24 · أخبار 24</h3>
+            <p class="muted" data-i18n="p_akhbar_desc">A news app that collects Moroccan and world news from many websites, shows the top stories first, in Arabic and English.</p>
+            <div class="tags"><span>React Native</span><span>Expo</span><span>RSS</span></div>
+            <span class="btn-sm is-disabled"><i class="ri-lock-line"></i><span data-i18n="btn_private">Private code</span></span>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="web">
+          <div class="thumb">
+            <img src="images/p-frontend.webp" alt="E-commerce Website Design preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-store-3-line"></i><span data-i18n="p_front_badge">Website</span></span>
+          </div>
+          <div class="card-body">
+            <h3>E-commerce Website Design</h3>
+            <p class="muted" data-i18n="p_front_desc">A multi-page shop website with categories for fashion, fast food, electronics and sports products.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Bootstrap</span></div>
+            <a href="https://github.com/Y0USSEF000/Front_End_Website_Design-" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="python">
+          <div class="thumb">
+            <img src="images/image3.webp" alt="Happy Friday Messenger preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-robot-2-line"></i><span data-i18n="p_friday_badge">Automation</span></span>
+          </div>
+          <div class="card-body">
+            <h3>Happy Friday Messenger</h3>
+            <p class="muted" data-i18n="p_friday_desc">A Python tool that automatically sends personalized messages and images on WhatsApp Web at a chosen time every week.</p>
             <div class="tags"><span>Python</span><span>Automation</span></div>
             <a href="https://github.com/Y0USSEF000/Happy-Friday-Messenger-" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
           </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="python">
+          <div class="thumb">
+            <img src="images/p-qr.webp" alt="QR Code Generator preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-qr-code-line"></i><span data-i18n="p_qr_badge">Python tool</span></span>
+          </div>
+          <div class="card-body">
+            <h3>QR Code Generator</h3>
+            <p class="muted" data-i18n="p_qr_desc">Turn any link into a high-quality QR code image in seconds, from the command line.</p>
+            <div class="tags"><span>Python</span><span>qrcode</span></div>
+            <a href="https://github.com/Y0USSEF000/QR-Code-Generator-in-Python" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="web">
+          <div class="thumb">
+            <img src="images/p-tictactoe.webp" alt="Tic Tac Toe preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-gamepad-line"></i><span data-i18n="p_ttt_badge">Game</span></span>
+          </div>
+          <div class="card-body">
+            <h3>Tic Tac Toe</h3>
+            <p class="muted" data-i18n="p_ttt_desc">The classic two-player game in the browser, with turn display, win detection and restart.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <a href="https://github.com/Y0USSEF000/Tic-Tac-Toe-Game---HTML-CSS-JavaScript" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
+        </article>
+        <article class="card project tilt reveal" data-cat="web">
+          <div class="thumb">
+            <img src="images/p-redux.webp" alt="Animal Manager — React Redux preview" loading="lazy" width="800" height="600" />
+            <span class="badge"><i class="ri-file-list-3-line"></i><span data-i18n="p_redux_badge">Web app</span></span>
+          </div>
+          <div class="card-body">
+            <h3>Animal Manager — React Redux</h3>
+            <p class="muted" data-i18n="p_redux_desc">Add, list and update animals with forms and Redux state management across several pages.</p>
+            <div class="tags"><span>React</span><span>Redux</span><span>React Router</span></div>
+            <a href="https://github.com/Y0USSEF000/An_Example_Of_React_Redux-" target="_blank" rel="noopener" class="btn-sm"><i class="ri-github-line"></i><span data-i18n="btn_code">View code</span></a>
+          </div>
+          <span class="glare" aria-hidden="true"></span>
         </article>
       </div>
     </section>
@@ -166,22 +293,22 @@
       </div>
 
       <ol class="steps">
-        <li class="step reveal">
+        <li class="step tilt reveal">
           <span class="step-num">01</span>
           <h3 data-i18n="st1_title">We talk</h3>
           <p class="muted" data-i18n="st1_desc">You tell me about your business and goals. I suggest a plan, a price and a deadline.</p>
         </li>
-        <li class="step reveal">
+        <li class="step tilt reveal">
           <span class="step-num">02</span>
           <h3 data-i18n="st2_title">Design</h3>
           <p class="muted" data-i18n="st2_desc">I prepare the look of your site. You give feedback until it feels right.</p>
         </li>
-        <li class="step reveal">
+        <li class="step tilt reveal">
           <span class="step-num">03</span>
           <h3 data-i18n="st3_title">Build</h3>
           <p class="muted" data-i18n="st3_desc">I build the site and send you regular updates and a preview link.</p>
         </li>
-        <li class="step reveal">
+        <li class="step tilt reveal">
           <span class="step-num">04</span>
           <h3 data-i18n="st4_title">Launch & support</h3>
           <p class="muted" data-i18n="st4_desc">Your site goes online. I stay available for changes and help after launch.</p>

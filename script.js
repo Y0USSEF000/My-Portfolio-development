@@ -3,6 +3,35 @@
 // =======================
 const I18N = {
   en: {
+    filter_all: "All",
+    filter_web: "Websites & web apps",
+    filter_mobile: "Mobile apps",
+    filter_python: "Python",
+    btn_private: "Private code",
+    projects_sub: "Real projects I built — websites, web apps, mobile apps and tools.",
+    p_madrasti_badge: "Learning platform",
+    p_madrasti_desc: "A learning platform for the Moroccan school curriculum, with a teacher space (lessons, quizzes, grading) and a student space.",
+    p_fitwolf_badge: "Mobile app",
+    p_fitwolf_desc: "Snap a photo of your meal and AI estimates the macros. Daily targets, meal plans, reminders, in 5 languages.",
+    p_shop_badge: "Web app",
+    p_shop_desc: "Inventory, orders, suppliers and analytics with role-based access, plus a modern store front.",
+    p_deck_badge: "Interactive dashboard",
+    p_deck_desc: "An interactive dashboard that explains 14 React Native concepts with live demos in a phone frame and the code behind them.",
+    p_social_badge: "Social platform",
+    p_social_desc: "News feed, user profiles, friends, real-time chat and messaging between users.",
+    p_akhbar_badge: "Mobile app",
+    p_akhbar_desc: "A news app that collects Moroccan and world news from many websites, shows the top stories first, in Arabic and English.",
+    p_front_badge: "Website",
+    p_front_desc: "A multi-page shop website with categories for fashion, fast food, electronics and sports products.",
+    p_friday_badge: "Automation",
+    p_friday_desc: "A Python tool that automatically sends personalized messages and images on WhatsApp Web at a chosen time every week.",
+    p_qr_badge: "Python tool",
+    p_qr_desc: "Turn any link into a high-quality QR code image in seconds, from the command line.",
+    p_ttt_badge: "Game",
+    p_ttt_desc: "The classic two-player game in the browser, with turn display, win detection and restart.",
+    p_redux_badge: "Web app",
+    p_redux_desc: "Add, list and update animals with forms and Redux state management across several pages.",
+
     site_title: "Youssef Dahi — Freelance Web Developer",
     nav_services: "Services",
     nav_projects: "Projects",
@@ -33,15 +62,6 @@ const I18N = {
 
     projects_eyebrow: "Selected work",
     projects_title: "Projects",
-    p1_badge: "Web app",
-    p1_title: "ShopMaster — Stock & Online Market",
-    p1_desc: "Inventory, orders, suppliers and analytics with role-based access, plus a modern store front.",
-    p2_badge: "Social platform",
-    p2_title: "Social Media Application",
-    p2_desc: "News feed, user profiles, friends, real-time chat and messaging between users.",
-    p3_badge: "Automation",
-    p3_title: "Happy Friday Messenger",
-    p3_desc: "A Python tool that automatically sends personalized messages and images on WhatsApp Web at a chosen time every week.",
     btn_code: "View code",
 
     process_eyebrow: "Simple and clear",
@@ -71,6 +91,35 @@ const I18N = {
   },
 
   fr: {
+    filter_all: "Tous",
+    filter_web: "Sites & apps web",
+    filter_mobile: "Apps mobiles",
+    filter_python: "Python",
+    btn_private: "Code privé",
+    projects_sub: "De vrais projets que j'ai réalisés — sites, applications web, apps mobiles et outils.",
+    p_madrasti_badge: "Plateforme éducative",
+    p_madrasti_desc: "Une plateforme d'apprentissage pour le programme scolaire marocain, avec un espace enseignant (cours, quiz, notes) et un espace élève.",
+    p_fitwolf_badge: "App mobile",
+    p_fitwolf_desc: "Prenez votre repas en photo et l'IA estime les macros. Objectifs quotidiens, plans de repas, rappels, en 5 langues.",
+    p_shop_badge: "Application web",
+    p_shop_desc: "Gestion du stock, des commandes, des fournisseurs et des statistiques avec rôles utilisateurs, plus une boutique moderne.",
+    p_deck_badge: "Tableau interactif",
+    p_deck_desc: "Un tableau de bord interactif qui explique 14 concepts React Native avec des démos en direct dans un téléphone et le code associé.",
+    p_social_badge: "Réseau social",
+    p_social_desc: "Fil d'actualité, profils, amis, chat en temps réel et messagerie entre utilisateurs.",
+    p_akhbar_badge: "App mobile",
+    p_akhbar_desc: "Une app d'actualités qui rassemble les infos du Maroc et du monde depuis plusieurs sites, avec les plus importantes en premier, en arabe et en anglais.",
+    p_front_badge: "Site web",
+    p_front_desc: "Un site de boutique multi-pages avec des catégories mode, fast-food, électronique et sport.",
+    p_friday_badge: "Automatisation",
+    p_friday_desc: "Un outil Python qui envoie automatiquement des messages et images personnalisés sur WhatsApp Web, chaque semaine à l'heure choisie.",
+    p_qr_badge: "Outil Python",
+    p_qr_desc: "Transformez n'importe quel lien en image QR code de haute qualité en quelques secondes, depuis le terminal.",
+    p_ttt_badge: "Jeu",
+    p_ttt_desc: "Le jeu classique à deux joueurs dans le navigateur, avec affichage du tour, détection de victoire et redémarrage.",
+    p_redux_badge: "Application web",
+    p_redux_desc: "Ajouter, lister et modifier des animaux avec des formulaires et une gestion d'état Redux sur plusieurs pages.",
+
     site_title: "Youssef Dahi — Développeur Web Freelance",
     nav_services: "Services",
     nav_projects: "Projets",
@@ -101,15 +150,6 @@ const I18N = {
 
     projects_eyebrow: "Réalisations",
     projects_title: "Projets",
-    p1_badge: "Application web",
-    p1_title: "ShopMaster — Stock & Marché en ligne",
-    p1_desc: "Gestion du stock, des commandes, des fournisseurs et des statistiques avec rôles utilisateurs, plus une boutique moderne.",
-    p2_badge: "Réseau social",
-    p2_title: "Application de réseau social",
-    p2_desc: "Fil d'actualité, profils, amis, chat en temps réel et messagerie entre utilisateurs.",
-    p3_badge: "Automatisation",
-    p3_title: "Happy Friday Messenger",
-    p3_desc: "Un outil Python qui envoie automatiquement des messages et images personnalisés sur WhatsApp Web, chaque semaine à l'heure choisie.",
     btn_code: "Voir le code",
 
     process_eyebrow: "Simple et clair",
@@ -139,6 +179,35 @@ const I18N = {
   },
 
   ar: {
+    filter_all: "الكل",
+    filter_web: "مواقع وتطبيقات ويب",
+    filter_mobile: "تطبيقات الهاتف",
+    filter_python: "بايثون",
+    btn_private: "كود خاص",
+    projects_sub: "مشاريع حقيقية بنيتها — مواقع وتطبيقات ويب وتطبيقات هاتف وأدوات.",
+    p_madrasti_badge: "منصة تعليمية",
+    p_madrasti_desc: "منصة تعليمية للمنهاج الدراسي المغربي، فيها فضاء للأستاذ (دروس، اختبارات، تنقيط) وفضاء للتلميذ.",
+    p_fitwolf_badge: "تطبيق هاتف",
+    p_fitwolf_desc: "صوّر وجبتك ويقدّر الذكاء الاصطناعي قيمتها الغذائية. أهداف يومية، برامج وجبات وتذكيرات، بـ 5 لغات.",
+    p_shop_badge: "تطبيق ويب",
+    p_shop_desc: "إدارة المخزون والطلبات والمورّدين والإحصائيات مع صلاحيات للمستخدمين، وواجهة متجر حديثة.",
+    p_deck_badge: "لوحة تفاعلية",
+    p_deck_desc: "لوحة تفاعلية تشرح 14 مفهوماً في React Native مع عروض حيّة داخل إطار هاتف والكود الخاص بها.",
+    p_social_badge: "منصة اجتماعية",
+    p_social_desc: "خلاصة منشورات، ملفات شخصية، أصدقاء، دردشة فورية ومراسلة بين المستخدمين.",
+    p_akhbar_badge: "تطبيق هاتف",
+    p_akhbar_desc: "تطبيق أخبار يجمع أخبار المغرب والعالم من عدة مواقع، ويعرض الأهم أولاً، بالعربية والإنجليزية.",
+    p_front_badge: "موقع ويب",
+    p_front_desc: "موقع متجر متعدد الصفحات بأقسام للملابس والأكل السريع والإلكترونيات ومنتجات الرياضة.",
+    p_friday_badge: "أتمتة",
+    p_friday_desc: "أداة بايثون ترسل تلقائياً رسائل وصوراً مخصّصة عبر واتساب ويب في الوقت الذي تختاره كل أسبوع.",
+    p_qr_badge: "أداة بايثون",
+    p_qr_desc: "حوّل أي رابط إلى صورة رمز QR عالية الجودة في ثوانٍ، من سطر الأوامر.",
+    p_ttt_badge: "لعبة",
+    p_ttt_desc: "اللعبة الكلاسيكية للاعبَين في المتصفح، مع عرض الدور واكتشاف الفوز وإعادة اللعب.",
+    p_redux_badge: "تطبيق ويب",
+    p_redux_desc: "إضافة الحيوانات وعرضها وتعديلها عبر نماذج، مع إدارة الحالة بـ Redux على عدة صفحات.",
+
     site_title: "يوسف الداحي — مطوّر مواقع مستقل",
     nav_services: "الخدمات",
     nav_projects: "المشاريع",
@@ -169,15 +238,6 @@ const I18N = {
 
     projects_eyebrow: "أعمال مختارة",
     projects_title: "المشاريع",
-    p1_badge: "تطبيق ويب",
-    p1_title: "ShopMaster — المخزون والمتجر الإلكتروني",
-    p1_desc: "إدارة المخزون والطلبات والمورّدين والإحصائيات مع صلاحيات للمستخدمين، وواجهة متجر حديثة.",
-    p2_badge: "منصة اجتماعية",
-    p2_title: "تطبيق تواصل اجتماعي",
-    p2_desc: "خلاصة منشورات، ملفات شخصية، أصدقاء، دردشة فورية ومراسلة بين المستخدمين.",
-    p3_badge: "أتمتة",
-    p3_title: "مرسال جمعة مباركة",
-    p3_desc: "أداة بايثون ترسل تلقائياً رسائل وصوراً مخصّصة عبر واتساب ويب في الوقت الذي تختاره كل أسبوع.",
     btn_code: "عرض الكود",
 
     process_eyebrow: "بسيط وواضح",
@@ -207,6 +267,35 @@ const I18N = {
   },
 
   es: {
+    filter_all: "Todos",
+    filter_web: "Webs y apps web",
+    filter_mobile: "Apps móviles",
+    filter_python: "Python",
+    btn_private: "Código privado",
+    projects_sub: "Proyectos reales que he construido: webs, apps web, apps móviles y herramientas.",
+    p_madrasti_badge: "Plataforma educativa",
+    p_madrasti_desc: "Una plataforma educativa para el currículo escolar marroquí, con un espacio para profesores (lecciones, cuestionarios, notas) y otro para alumnos.",
+    p_fitwolf_badge: "App móvil",
+    p_fitwolf_desc: "Haz una foto de tu comida y la IA calcula los macros. Objetivos diarios, planes de comidas y recordatorios, en 5 idiomas.",
+    p_shop_badge: "App web",
+    p_shop_desc: "Inventario, pedidos, proveedores y analíticas con acceso por roles, además de una tienda moderna.",
+    p_deck_badge: "Panel interactivo",
+    p_deck_desc: "Un panel interactivo que explica 14 conceptos de React Native con demos en vivo dentro de un teléfono y su código.",
+    p_social_badge: "Red social",
+    p_social_desc: "Feed de noticias, perfiles, amigos, chat en tiempo real y mensajes entre usuarios.",
+    p_akhbar_badge: "App móvil",
+    p_akhbar_desc: "Una app de noticias que reúne noticias de Marruecos y del mundo de muchos sitios, con las más importantes primero, en árabe e inglés.",
+    p_front_badge: "Sitio web",
+    p_front_desc: "Una tienda web de varias páginas con categorías de moda, comida rápida, electrónica y deporte.",
+    p_friday_badge: "Automatización",
+    p_friday_desc: "Una herramienta en Python que envía automáticamente mensajes e imágenes personalizados por WhatsApp Web a la hora elegida cada semana.",
+    p_qr_badge: "Herramienta Python",
+    p_qr_desc: "Convierte cualquier enlace en una imagen de código QR de alta calidad en segundos, desde la terminal.",
+    p_ttt_badge: "Juego",
+    p_ttt_desc: "El clásico juego para dos jugadores en el navegador, con turno visible, detección de victoria y reinicio.",
+    p_redux_badge: "App web",
+    p_redux_desc: "Añadir, listar y editar animales con formularios y gestión de estado con Redux en varias páginas.",
+
     site_title: "Youssef Dahi — Desarrollador Web Freelance",
     nav_services: "Servicios",
     nav_projects: "Proyectos",
@@ -237,15 +326,6 @@ const I18N = {
 
     projects_eyebrow: "Trabajos seleccionados",
     projects_title: "Proyectos",
-    p1_badge: "App web",
-    p1_title: "ShopMaster — Inventario y tienda online",
-    p1_desc: "Inventario, pedidos, proveedores y analíticas con acceso por roles, además de una tienda moderna.",
-    p2_badge: "Red social",
-    p2_title: "Aplicación de red social",
-    p2_desc: "Feed de noticias, perfiles, amigos, chat en tiempo real y mensajes entre usuarios.",
-    p3_badge: "Automatización",
-    p3_title: "Happy Friday Messenger",
-    p3_desc: "Una herramienta en Python que envía automáticamente mensajes e imágenes personalizados por WhatsApp Web a la hora elegida cada semana.",
     btn_code: "Ver código",
 
     process_eyebrow: "Simple y claro",
@@ -362,6 +442,53 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--mx", e.clientX + "px");
     document.documentElement.style.setProperty("--my", e.clientY + "px");
   });
+
+  // Project filters
+  const filterBtns = document.querySelectorAll(".filter");
+  filterBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const f = btn.dataset.filter;
+      filterBtns.forEach((b) => b.classList.toggle("active", b === btn));
+      document.querySelectorAll(".project").forEach((card) => {
+        card.classList.toggle("is-hidden", f !== "all" && card.dataset.cat !== f);
+      });
+    })
+  );
+
+  // 3D tilt on cards (mouse only)
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!reduceMotion && finePointer) {
+    const MAX = 10; // degrees
+    document.querySelectorAll(".tilt").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;  // 0 → 1
+        const y = (e.clientY - r.top) / r.height;  // 0 → 1
+        el.classList.add("is-tilting");
+        el.style.setProperty("--ry", ((x - 0.5) * 2 * MAX).toFixed(2) + "deg");
+        el.style.setProperty("--rx", ((0.5 - y) * 2 * MAX).toFixed(2) + "deg");
+        el.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
+        el.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+      });
+      el.addEventListener("pointerleave", () => {
+        el.classList.remove("is-tilting");
+        el.style.setProperty("--rx", "0deg");
+        el.style.setProperty("--ry", "0deg");
+      });
+    });
+
+    // Hero scene follows the mouse in 3D
+    const scene = document.getElementById("hero-scene");
+    if (scene) {
+      window.addEventListener("pointermove", (e) => {
+        const x = e.clientX / window.innerWidth - 0.5;
+        const y = e.clientY / window.innerHeight - 0.5;
+        scene.style.setProperty("--hy", (x * 24).toFixed(2) + "deg");
+        scene.style.setProperty("--hx", (-y * 18).toFixed(2) + "deg");
+      });
+    }
+  }
 
   // Reveal sections on scroll
   const items = document.querySelectorAll(".reveal");
