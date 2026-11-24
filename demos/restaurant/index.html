@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dar Zitoun — Restaurant marocain (démo)</title>
+  <meta name="description" content="Demo restaurant website by Youssef Dahi: menu, gallery, opening hours, map and reservation, in French, Arabic and English." />
+  <meta name="theme-color" content="#1f3b2d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1f3b2d;
+      --green-2: #2c5440;
+      --gold: #c9973f;
+      --gold-2: #e0b664;
+      --cream: #f8f2e7;
+      --sand: #efe4d0;
+      --ink: #1c1a17;
+      --muted: #6d655a;
+      --white: #fffdf9;
+      --radius: 18px;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Outfit", system-ui, sans-serif;
+    }
+    html[lang="ar"] { --serif: "Noto Kufi Arabic", serif; --sans: "Noto Kufi Arabic", system-ui, sans-serif; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { margin: 0; font: 16px/1.7 var(--sans); color: var(--ink); background: var(--cream); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0 0 .5em; }
+    h2 { font-size: clamp(2rem, 4vw, 2.9rem); color: var(--green); }
+    p { margin: 0 0 1em; }
+    .container { width: min(1140px, 92%); margin-inline: auto; }
+    .eyebrow { color: var(--gold); font-weight: 600; letter-spacing: .18em; text-transform: uppercase; font-size: .8rem; margin-bottom: .5rem; }
+    html[lang="ar"] .eyebrow { letter-spacing: 0; font-size: .95rem; }
+    .muted { color: var(--muted); }
+
+    /* Demo ribbon */
+    .demo-bar { background: var(--ink); color: #e9e2d5; font-size: .85rem; text-align: center; padding: .45rem 1rem; }
+    .demo-bar a { color: var(--gold-2); font-weight: 600; }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 40; transition: background .3s, box-shadow .3s; }
+    header.scrolled { background: rgba(31, 59, 45, .96); box-shadow: 0 8px 24px rgba(0,0,0,.15); backdrop-filter: blur(8px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 74px; color: #fff; }
+    .logo { display: flex; align-items: center; gap: .6rem; font-family: var(--serif); font-size: 1.45rem; font-weight: 700; }
+    .logo i { color: var(--gold-2); font-size: 1.6rem; }
+    .links { display: flex; align-items: center; gap: 1.7rem; font-weight: 500; }
+    .links a:not(.btn) { opacity: .88; } .links a:not(.btn):hover { opacity: 1; color: var(--gold-2); }
+    .langs { display: flex; gap: .25rem; background: rgba(255,255,255,.12); border-radius: 999px; padding: .2rem; }
+    .langs button { border: 0; background: none; color: #fff; font: 600 .8rem var(--sans); padding: .35rem .6rem; border-radius: 999px; cursor: pointer; }
+    .langs button.on { background: var(--gold); color: var(--ink); }
+    .burger { display: none; background: none; border: 0; color: #fff; font-size: 1.6rem; cursor: pointer; }
+
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .8rem 1.4rem; border-radius: 999px; font-weight: 600; border: 0; cursor: pointer; font-family: var(--sans); font-size: 1rem; transition: transform .2s, box-shadow .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: var(--ink); box-shadow: 0 10px 25px rgba(201,151,63,.35); }
+    .btn-gold:hover { background: var(--gold-2); }
+    .btn-line { color: #fff; border: 1.5px solid rgba(255,255,255,.6); }
+    .btn-line:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+    /* Hero */
+    .hero { position: relative; margin-top: -74px; min-height: 100vh; display: grid; align-items: center; color: #fff; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1748540459503-19efc015143b?w=1800&q=75&auto=format&fit=crop") center/cover; transform: scale(1.08); animation: zoom 18s ease-out forwards; }
+    @keyframes zoom { to { transform: scale(1); } }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(20,34,26,.92) 0%, rgba(20,34,26,.7) 45%, rgba(20,34,26,.25) 100%); }
+    html[dir="rtl"] .hero::after { background: linear-gradient(-100deg, rgba(20,34,26,.92) 0%, rgba(20,34,26,.7) 45%, rgba(20,34,26,.25) 100%); }
+    .hero-content { position: relative; z-index: 1; max-width: 620px; padding-block: 8rem 5rem; }
+    .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+    .hero h1 span { color: var(--gold-2); font-style: italic; }
+    html[lang="ar"] .hero h1 span { font-style: normal; }
+    .hero p { font-size: 1.15rem; opacity: .9; max-width: 520px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+    .hero-info { display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 2.8rem; font-size: .95rem; opacity: .9; }
+    .hero-info span { display: flex; align-items: center; gap: .45rem; } .hero-info i { color: var(--gold-2); font-size: 1.15rem; }
+
+    /* Sections */
+    section { padding-block: 6rem; }
+    .head { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-pics { position: relative; height: 480px; }
+    .about-pics img { position: absolute; border-radius: var(--radius); object-fit: cover; box-shadow: 0 25px 50px rgba(0,0,0,.18); }
+    .about-pics img:first-child { inset: 0 18% 18% 0; width: 82%; height: 82%; }
+    .about-pics img:last-child { width: 50%; height: 52%; inset-inline-end: 0; bottom: 0; border: 6px solid var(--cream); }
+    .about-pics .badge { position: absolute; top: 1.2rem; inset-inline-end: 6%; background: var(--gold); color: var(--ink); border-radius: 50%; width: 110px; height: 110px; display: grid; place-items: center; text-align: center; font-weight: 700; line-height: 1.1; box-shadow: 0 12px 30px rgba(0,0,0,.2); }
+    .about-pics .badge b { display: block; font-family: var(--serif); font-size: 2rem; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.8rem; }
+    .feature { display: flex; gap: .8rem; align-items: flex-start; }
+    .feature i { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--sand); color: var(--green); font-size: 1.3rem; }
+    .feature strong { display: block; } .feature span { font-size: .9rem; color: var(--muted); }
+
+    /* Menu */
+    .menu-sec { background: var(--green); color: #f3ece0; position: relative; }
+    .menu-sec::before { content: ""; position: absolute; inset: 0; opacity: .06; background-image: radial-gradient(circle at 25% 25%, #fff 2px, transparent 2.5px), radial-gradient(circle at 75% 75%, #fff 2px, transparent 2.5px); background-size: 38px 38px; pointer-events: none; }
+    .menu-sec h2 { color: #fff; }
+    .tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-bottom: 2.8rem; position: relative; }
+    .tab { border: 1.5px solid rgba(255,255,255,.25); background: none; color: #f3ece0; font: 500 .95rem var(--sans); padding: .6rem 1.3rem; border-radius: 999px; cursor: pointer; transition: .2s; }
+    .tab:hover { border-color: var(--gold-2); }
+    .tab.on { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+    .dishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; position: relative; }
+    .dish { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); overflow: hidden; transition: transform .3s, background .3s; animation: rise .5s ease both; }
+    .dish:hover { transform: translateY(-6px); background: rgba(255,255,255,.1); }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+    .dish img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .dish-body { padding: 1.1rem 1.3rem 1.3rem; }
+    .dish-top { display: flex; justify-content: space-between; gap: .8rem; align-items: baseline; }
+    .dish h3 { font-size: 1.25rem; color: #fff; margin: 0; }
+    .price { color: var(--gold-2); font-weight: 700; white-space: nowrap; }
+    .dish p { margin: .4rem 0 0; font-size: .92rem; opacity: .75; }
+    .tag { display: inline-block; margin-top: .7rem; font-size: .75rem; padding: .15rem .6rem; border-radius: 999px; background: rgba(224,182,100,.15); color: var(--gold-2); }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 210px; gap: 1rem; }
+    .gallery figure { margin: 0; border-radius: var(--radius); overflow: hidden; cursor: zoom-in; }
+    .gallery figure:nth-child(1) { grid-row: span 2; grid-column: span 2; }
+    .gallery figure:nth-child(4) { grid-row: span 2; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .gallery figure:hover img { transform: scale(1.07); }
+    .lightbox { position: fixed; inset: 0; z-index: 80; background: rgba(10,14,12,.92); display: none; place-items: center; padding: 2rem; }
+    .lightbox.open { display: grid; }
+    .lightbox img { max-height: 86vh; border-radius: 12px; }
+    .lightbox button { position: absolute; top: 1rem; inset-inline-end: 1rem; background: none; border: 0; color: #fff; font-size: 2rem; cursor: pointer; }
+
+    /* Visit */
+    .visit { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; }
+    .card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: 0 15px 40px rgba(31,59,45,.08); }
+    .hours { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+    .hours li { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px dashed #e3d7c2; }
+    .hours li.today { color: var(--green); font-weight: 600; }
+    .contact-line { display: flex; gap: .7rem; align-items: center; margin-bottom: .7rem; }
+    .contact-line i { color: var(--gold); font-size: 1.2rem; }
+    .map { border-radius: var(--radius); overflow: hidden; min-height: 380px; box-shadow: 0 15px 40px rgba(31,59,45,.08); }
+    .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
+
+    /* Reservation */
+    .reserve { background: linear-gradient(rgba(20,34,26,.86), rgba(20,34,26,.86)), url("https://images.unsplash.com/photo-1591299089616-c9604047b1a6?w=1600&q=70&auto=format&fit=crop") center/cover fixed; color: #fff; }
+    .reserve h2 { color: #fff; }
+    .form { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto; }
+    .form label { display: grid; gap: .35rem; font-size: .85rem; opacity: .9; }
+    .form input, .form select { width: 100%; padding: .85rem 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; font: inherit; }
+    .form select option { color: var(--ink); }
+    .form input::placeholder { color: rgba(255,255,255,.55); }
+    .form .full { grid-column: 1 / -1; display: flex; justify-content: center; }
+    .ok { display: none; text-align: center; margin-top: 1.4rem; padding: 1rem; border-radius: 12px; background: rgba(224,182,100,.15); color: var(--gold-2); }
+    .ok.show { display: block; animation: rise .4s ease; }
+
+    footer { background: var(--ink); color: #b9b1a3; padding: 2.5rem 0; font-size: .9rem; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
+    .foot a { color: var(--gold-2); }
+
+    .wa { position: fixed; bottom: 22px; inset-inline-end: 22px; z-index: 50; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; font-size: 1.8rem; box-shadow: 0 10px 25px rgba(37,211,102,.45); animation: pop 2.5s ease-in-out infinite; }
+    @keyframes pop { 50% { transform: scale(1.08); } }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .links { position: absolute; top: 74px; inset-inline: 0; background: var(--green); flex-direction: column; align-items: stretch; gap: 0; padding: 1rem 4%; display: none; }
+      .links.open { display: flex; } .links a { padding: .75rem 0; } .links .btn { justify-content: center; }
+      .burger { display: block; }
+      .about, .visit { grid-template-columns: 1fr; }
+      .about-pics { height: 380px; }
+      .dishes { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+      .gallery figure:nth-child(4) { grid-row: span 1; }
+      .form { grid-template-columns: 1fr 1fr; }
+      .reserve { background-attachment: scroll; }
+    }
+    @media (max-width: 560px) {
+      .dishes, .features { grid-template-columns: 1fr; }
+      .form { grid-template-columns: 1fr; }
+      section { padding-block: 4.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="demo-bar"><span data-t="demo">Site de démonstration — restaurant fictif, réalisé par</span> <a href="../../" >Youssef Dahi</a></div>
+
+  <header id="top-bar">
+    <div class="container nav">
+      <a href="#home" class="logo"><i class="ri-leaf-line"></i> Dar Zitoun</a>
+      <nav class="links" id="links">
+        <a href="#about" data-t="nav_about">Notre histoire</a>
+        <a href="#menu" data-t="nav_menu">Menu</a>
+        <a href="#gallery" data-t="nav_gallery">Galerie</a>
+        <a href="#visit" data-t="nav_visit">Nous trouver</a>
+        <div class="langs" role="group" aria-label="Language">
+          <button data-lang="fr" class="on">FR</button><button data-lang="ar">ع</button><button data-lang="en">EN</button>
+        </div>
+        <a href="#reserve" class="btn btn-gold" data-t="nav_book">Réserver</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu"><i class="ri-menu-line"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" role="img" aria-label="Moroccan dishes on a table"></div>
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow" data-t="hero_eyebrow">Cuisine marocaine · Marrakech</p>
+          <h1 data-t-html="hero_title">Les saveurs de la maison, <span>comme chez grand-mère</span></h1>
+          <p data-t="hero_sub">Tajines mijotés lentement, couscous du vendredi et thé à la menthe, servis dans un riad au cœur de la médina.</p>
+          <div class="hero-actions">
+            <a href="#reserve" class="btn btn-gold"><i class="ri-calendar-check-line"></i><span data-t="hero_book">Réserver une table</span></a>
+            <a href="#menu" class="btn btn-line"><i class="ri-restaurant-2-line"></i><span data-t="hero_menu">Voir le menu</span></a>
+          </div>
+          <div class="hero-info">
+            <span><i class="ri-time-line"></i><span data-t="hero_hours">Tous les jours 12h – 23h</span></span>
+            <span><i class="ri-map-pin-2-line"></i><span data-t="hero_place">Médina, Marrakech</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+        <div class="about-pics reveal">
+          <img src="https://images.unsplash.com/photo-1661081988119-58e40ee39201?w=900&q=75&auto=format&fit=crop" alt="Dining room with Moroccan dishes" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1784137894042-78ad35e139dc?w=600&q=75&auto=format&fit=crop" alt="Chef cooking" loading="lazy">
+          <div class="badge"><div><b>100%</b><span data-t="badge">fait maison</span></div></div>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow" data-t="about_eyebrow">Notre histoire</p>
+          <h2 data-t="about_title">Une cuisine de famille, servie avec le cœur</h2>
+          <p class="muted" data-t="about_p1">Chez Dar Zitoun, chaque plat suit les recettes de notre famille. Les épices viennent du souk, les légumes du marché du matin, et les tajines cuisent doucement sur le charbon.</p>
+          <p class="muted" data-t="about_p2">Venez pour un déjeuner rapide, un dîner en famille ou un grand repas entre amis : vous serez toujours accueillis comme à la maison.</p>
+          <div class="features">
+            <div class="feature"><i class="ri-fire-line"></i><div><strong data-t="f1">Cuisson au charbon</strong><span data-t="f1d">Tajines mijotés pendant des heures</span></div></div>
+            <div class="feature"><i class="ri-plant-line"></i><div><strong data-t="f2">Produits frais</strong><span data-t="f2d">Marché du jour, épices du souk</span></div></div>
+            <div class="feature"><i class="ri-group-line"></i><div><strong data-t="f3">Groupes & familles</strong><span data-t="f3d">Salle privée jusqu'à 30 personnes</span></div></div>
+            <div class="feature"><i class="ri-e-bike-2-line"></i><div><strong data-t="f4">Livraison</strong><span data-t="f4d">Dans toute la ville</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-sec" id="menu">
+      <div class="container">
+        <div class="head reveal">
+          <p class="eyebrow" data-t="menu_eyebrow">À la carte</p>
+          <h2 data-t="menu_title">Notre menu</h2>
+          <p style="opacity:.75" data-t="menu_sub">Des plats généreux, préparés chaque jour. Prix en dirhams.</p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab on" data-cat="tajines" data-t="cat_tajines">Tajines</button>
+          <button class="tab" data-cat="plats" data-t="cat_plats">Couscous & grillades</button>
+          <button class="tab" data-cat="douceurs" data-t="cat_douceurs">Thé & douceurs</button>
+        </div>
+        <div class="dishes" id="dishes"></div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="head reveal">
+          <p class="eyebrow" data-t="gal_eyebrow">Galerie</p>
+          <h2 data-t="gal_title">Un moment chez nous</h2>
+        </div>
+        <div class="gallery reveal" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <section class="reserve" id="reserve">
+      <div class="container">
+        <div class="head reveal">
+          <p class="eyebrow" data-t="res_eyebrow">Réservation</p>
+          <h2 data-t="res_title">Réservez votre table</h2>
+          <p style="opacity:.8" data-t="res_sub">Remplissez le formulaire, nous confirmons par WhatsApp dans l'heure.</p>
+        </div>
+        <form class="form reveal" id="form">
+          <label><span data-t="r_name">Nom</span><input required name="name" autocomplete="name" data-ph="ph_name" placeholder="Votre nom"></label>
+          <label><span data-t="r_date">Date</span><input required type="date" name="date"></label>
+          <label><span data-t="r_time">Heure</span><input required type="time" name="time" value="20:00"></label>
+          <label><span data-t="r_people">Personnes</span><select name="people"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></label>
+          <div class="full"><button class="btn btn-gold" type="submit"><i class="ri-whatsapp-line"></i><span data-t="r_send">Envoyer la demande</span></button></div>
+        </form>
+        <p class="ok" id="ok" data-t="r_ok">Merci ! Sur un vrai site, votre demande serait envoyée au restaurant par WhatsApp.</p>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="container">
+        <div class="head reveal">
+          <p class="eyebrow" data-t="visit_eyebrow">Nous trouver</p>
+          <h2 data-t="visit_title">Horaires & adresse</h2>
+        </div>
+        <div class="visit">
+          <div class="card reveal">
+            <h3 data-t="hours_title">Horaires d'ouverture</h3>
+            <ul class="hours" id="hours"></ul>
+            <div class="contact-line"><i class="ri-map-pin-2-line"></i><span data-t="addr">Derb Zitoun, Médina — Marrakech (adresse fictive)</span></div>
+            <div class="contact-line"><i class="ri-phone-line"></i><span>+212 5 00 00 00 00 <small class="muted" data-t="fake">(numéro de démo)</small></span></div>
+            <div class="contact-line"><i class="ri-instagram-line"></i><span>@darzitoun.demo</span></div>
+          </div>
+          <div class="map reveal">
+            <iframe title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Medina%20Marrakech&z=15&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© <span id="y"></span> Dar Zitoun — <span data-t="foot">restaurant fictif, site de démonstration.</span></span>
+      <span><span data-t="made">Site réalisé par</span> <a href="../../">Youssef Dahi</a> · <span data-t="photos">Photos</span>: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></span>
+    </div>
+  </footer>
+
+  <a href="#reserve" class="wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+
+  <div class="lightbox" id="lightbox"><button aria-label="Close"><i class="ri-close-line"></i></button><img alt=""></div>
+
+  <script>
+    const U = (id, w = 700) => `https://images.unsplash.com/${id}?w=${w}&q=72&auto=format&fit=crop`;
+
+    const DISHES = {
+      tajines: [
+        { img: "photo-1661083098412-054431ab7112", price: 95, k: "d1", tag: "best" },
+        { img: "photo-1673283556513-282af10c9882", price: 80, k: "d2" },
+        { img: "photo-1541518763669-27fef04b14ea", price: 70, k: "d3", tag: "veg" },
+      ],
+      plats: [
+        { img: "photo-1643019237176-8ae0859f1123", price: 85, k: "d4", tag: "fri" },
+        { img: "photo-1777716003985-68fed08d0c7e", price: 120, k: "d5" },
+        { img: "photo-1682370207954-c8a9cccaabb4", price: 75, k: "d6", tag: "veg" },
+      ],
+      douceurs: [
+        { img: "photo-1574810134700-b6ba48d151a0", price: 35, k: "d7", tag: "best" },
+        { img: "photo-1555758933-42f41c02c82f", price: 15, k: "d8" },
+        { img: "photo-1763571494240-e88c4ae18742", price: 25, k: "d9" },
+      ],
+    };
+    const GALLERY = ["photo-1785734290864-eca98549d0b6", "photo-1669542795386-e794632a231f", "photo-1758745464235-ccb8c1253074", "photo-1773209927898-a0a7e0a13125", "photo-1517314597476-e1788060b6cb", "photo-1517314626714-ac1b9a16515e"];
+
+    const T = {
+      fr: {
+        demo: "Site de démonstration — restaurant fictif, réalisé par",
+        nav_about: "Notre histoire", nav_menu: "Menu", nav_gallery: "Galerie", nav_visit: "Nous trouver", nav_book: "Réserver",
+        hero_eyebrow: "Cuisine marocaine · Marrakech",
+        hero_title: "Les saveurs de la maison, <span>comme chez grand-mère</span>",
+        hero_sub: "Tajines mijotés lentement, couscous du vendredi et thé à la menthe, servis dans un riad au cœur de la médina.",
+        hero_book: "Réserver une table", hero_menu: "Voir le menu", hero_hours: "Tous les jours 12h – 23h", hero_place: "Médina, Marrakech",
+        badge: "fait maison",
+        about_eyebrow: "Notre histoire", about_title: "Une cuisine de famille, servie avec le cœur",
+        about_p1: "Chez Dar Zitoun, chaque plat suit les recettes de notre famille. Les épices viennent du souk, les légumes du marché du matin, et les tajines cuisent doucement sur le charbon.",
+        about_p2: "Venez pour un déjeuner rapide, un dîner en famille ou un grand repas entre amis : vous serez toujours accueillis comme à la maison.",
+        f1: "Cuisson au charbon", f1d: "Tajines mijotés pendant des heures", f2: "Produits frais", f2d: "Marché du jour, épices du souk",
+        f3: "Groupes & familles", f3d: "Salle privée jusqu'à 30 personnes", f4: "Livraison", f4d: "Dans toute la ville",
+        menu_eyebrow: "À la carte", menu_title: "Notre menu", menu_sub: "Des plats généreux, préparés chaque jour. Prix en dirhams.",
+        cat_tajines: "Tajines", cat_plats: "Couscous & grillades", cat_douceurs: "Thé & douceurs",
+        d1: ["Tajine d'agneau aux pruneaux", "Agneau fondant, pruneaux, amandes grillées et sésame."],
+        d2: ["Tajine de kefta aux œufs", "Boulettes épicées dans une sauce tomate au cumin."],
+        d3: ["Tajine de légumes", "Légumes du marché, olives et citron confit."],
+        d4: ["Couscous royal", "Semoule fine, sept légumes, poulet et agneau."],
+        d5: ["Assiette de grillades", "Brochettes, merguez et kefta, riz et pain maison."],
+        d6: ["Zaalouk & salades marocaines", "Assortiment de salades cuites, à partager."],
+        d7: ["Thé & pâtisseries", "Théière à la menthe et cornes de gazelle."],
+        d8: ["Thé à la menthe", "Servi à la marocaine, menthe fraîche."],
+        d9: ["Verre de thé aux épices", "Thé noir, cannelle et fleur d'oranger."],
+        tags: { best: "Le plus aimé", veg: "Végétarien", fri: "Spécial vendredi" },
+        cur: "DH",
+        gal_eyebrow: "Galerie", gal_title: "Un moment chez nous",
+        res_eyebrow: "Réservation", res_title: "Réservez votre table", res_sub: "Remplissez le formulaire, nous confirmons par WhatsApp dans l'heure.",
+        r_name: "Nom", ph_name: "Votre nom", r_date: "Date", r_time: "Heure", r_people: "Personnes", r_send: "Envoyer la demande",
+        r_ok: "Merci ! Sur un vrai site, votre demande serait envoyée au restaurant par WhatsApp.",
+        visit_eyebrow: "Nous trouver", visit_title: "Horaires & adresse", hours_title: "Horaires d'ouverture",
+        days: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"], hrs: "12:00 – 23:00", fri: "12:00 – 00:00",
+        addr: "Derb Zitoun, Médina — Marrakech (adresse fictive)", fake: "(numéro de démo)",
+        foot: "restaurant fictif, site de démonstration.", made: "Site réalisé par", photos: "Photos",
+      },
+      ar: {
+        demo: "موقع تجريبي — مطعم خيالي، من إنجاز",
+        nav_about: "قصتنا", nav_menu: "القائمة", nav_gallery: "المعرض", nav_visit: "موقعنا", nav_book: "احجز",
+        hero_eyebrow: "المطبخ المغربي · مراكش",
+        hero_title: "نكهات البيت، <span>كما تطبخها الجدّة</span>",
+        hero_sub: "طواجن مطهوّة على مهل، كسكس الجمعة وأتاي بالنعناع، في رياض بقلب المدينة القديمة.",
+        hero_book: "احجز طاولة", hero_menu: "شاهد القائمة", hero_hours: "كل يوم 12:00 – 23:00", hero_place: "المدينة القديمة، مراكش",
+        badge: "صنع منزلي",
+        about_eyebrow: "قصتنا", about_title: "مطبخ عائلي يُقدَّم من القلب",
+        about_p1: "في دار زيتون، كل طبق يتبع وصفات عائلتنا. التوابل من السوق، والخضر من سوق الصباح، والطواجن تُطهى ببطء على الفحم.",
+        about_p2: "تعالَ لغداء سريع أو عشاء عائلي أو وليمة مع الأصدقاء: ستجد دائماً ترحيباً كأنك في بيتك.",
+        f1: "طهي على الفحم", f1d: "طواجن تُطهى لساعات", f2: "منتجات طازجة", f2d: "سوق اليوم وتوابل السوق",
+        f3: "مجموعات وعائلات", f3d: "قاعة خاصة حتى 30 شخصاً", f4: "توصيل", f4d: "في كل أنحاء المدينة",
+        menu_eyebrow: "الأطباق", menu_title: "قائمتنا", menu_sub: "أطباق سخية تُحضَّر كل يوم. الأسعار بالدرهم.",
+        cat_tajines: "طواجن", cat_plats: "كسكس ومشويات", cat_douceurs: "أتاي وحلويات",
+        d1: ["طاجين اللحم بالبرقوق", "لحم غنمي طري، برقوق، لوز محمّص وجلجلان."],
+        d2: ["طاجين الكفتة بالبيض", "كويرات متبّلة في صلصة طماطم بالكمون."],
+        d3: ["طاجين الخضر", "خضر السوق، زيتون وحامض مصيّر."],
+        d4: ["كسكس ملكي", "سميد رقيق، سبع خضاري، دجاج ولحم."],
+        d5: ["طبق المشويات", "قطبان، مرقاز وكفتة مع الأرز والخبز البلدي."],
+        d6: ["زعلوك وسلطات مغربية", "تشكيلة سلطات مطبوخة للمشاركة."],
+        d7: ["أتاي وحلويات", "براد أتاي بالنعناع وكعب غزال."],
+        d8: ["أتاي بالنعناع", "على الطريقة المغربية بنعناع طري."],
+        d9: ["كأس أتاي بالتوابل", "شاي أسود، قرفة وماء الزهر."],
+        tags: { best: "الأكثر طلباً", veg: "نباتي", fri: "خاص بالجمعة" },
+        cur: "درهم",
+        gal_eyebrow: "المعرض", gal_title: "لحظات عندنا",
+        res_eyebrow: "الحجز", res_title: "احجز طاولتك", res_sub: "املأ الاستمارة وسنؤكد الحجز عبر واتساب خلال ساعة.",
+        r_name: "الاسم", ph_name: "اسمك", r_date: "التاريخ", r_time: "الساعة", r_people: "عدد الأشخاص", r_send: "أرسل الطلب",
+        r_ok: "شكراً! في موقع حقيقي، سيُرسل طلبك إلى المطعم عبر واتساب.",
+        visit_eyebrow: "موقعنا", visit_title: "الأوقات والعنوان", hours_title: "أوقات العمل",
+        days: ["الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت", "الأحد"], hrs: "12:00 – 23:00", fri: "12:00 – 00:00",
+        addr: "درب زيتون، المدينة القديمة — مراكش (عنوان خيالي)", fake: "(رقم تجريبي)",
+        foot: "مطعم خيالي، موقع تجريبي.", made: "من إنجاز", photos: "الصور",
+      },
+      en: {
+        demo: "Demo website — fictional restaurant, built by",
+        nav_about: "Our story", nav_menu: "Menu", nav_gallery: "Gallery", nav_visit: "Find us", nav_book: "Book",
+        hero_eyebrow: "Moroccan cuisine · Marrakech",
+        hero_title: "Home-style flavours, <span>just like grandma's</span>",
+        hero_sub: "Slow-cooked tagines, Friday couscous and mint tea, served in a riad in the heart of the medina.",
+        hero_book: "Book a table", hero_menu: "See the menu", hero_hours: "Every day 12pm – 11pm", hero_place: "Medina, Marrakech",
+        badge: "homemade",
+        about_eyebrow: "Our story", about_title: "Family cooking, served from the heart",
+        about_p1: "At Dar Zitoun, every dish follows our family's recipes. Spices come from the souk, vegetables from the morning market, and tagines cook slowly over charcoal.",
+        about_p2: "Come for a quick lunch, a family dinner or a big meal with friends: you'll always be welcomed like at home.",
+        f1: "Charcoal cooking", f1d: "Tagines simmered for hours", f2: "Fresh produce", f2d: "Daily market, souk spices",
+        f3: "Groups & families", f3d: "Private room for up to 30", f4: "Delivery", f4d: "All around the city",
+        menu_eyebrow: "À la carte", menu_title: "Our menu", menu_sub: "Generous dishes, made fresh every day. Prices in dirhams.",
+        cat_tajines: "Tagines", cat_plats: "Couscous & grills", cat_douceurs: "Tea & sweets",
+        d1: ["Lamb tagine with prunes", "Tender lamb, prunes, toasted almonds and sesame."],
+        d2: ["Kefta tagine with eggs", "Spiced meatballs in a cumin tomato sauce."],
+        d3: ["Vegetable tagine", "Market vegetables, olives and preserved lemon."],
+        d4: ["Royal couscous", "Fine semolina, seven vegetables, chicken and lamb."],
+        d5: ["Mixed grill plate", "Skewers, merguez and kefta with rice and homemade bread."],
+        d6: ["Zaalouk & Moroccan salads", "A selection of cooked salads to share."],
+        d7: ["Tea & pastries", "A pot of mint tea with gazelle horns."],
+        d8: ["Mint tea", "Served the Moroccan way, with fresh mint."],
+        d9: ["Spiced tea", "Black tea, cinnamon and orange blossom."],
+        tags: { best: "Most loved", veg: "Vegetarian", fri: "Friday special" },
+        cur: "MAD",
+        gal_eyebrow: "Gallery", gal_title: "A moment with us",
+        res_eyebrow: "Reservation", res_title: "Book your table", res_sub: "Fill in the form and we'll confirm on WhatsApp within the hour.",
+        r_name: "Name", ph_name: "Your name", r_date: "Date", r_time: "Time", r_people: "Guests", r_send: "Send request",
+        r_ok: "Thank you! On a real website, your request would be sent to the restaurant on WhatsApp.",
+        visit_eyebrow: "Find us", visit_title: "Hours & address", hours_title: "Opening hours",
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], hrs: "12:00 – 23:00", fri: "12:00 – 00:00",
+        addr: "Derb Zitoun, Medina — Marrakech (fictional address)", fake: "(demo number)",
+        foot: "fictional restaurant, demo website.", made: "Website by", photos: "Photos",
+      },
+    };
+
+    let lang = "fr", cat = "tajines";
+    try { lang = localStorage.getItem("dz_lang") || (navigator.language || "fr").slice(0, 2); } catch (e) {}
+    if (!T[lang]) lang = "fr";
+
+    function renderDishes() {
+      const t = T[lang];
+      document.getElementById("dishes").innerHTML = DISHES[cat].map((d) => `
+        <article class="dish">
+          <img src="${U(d.img)}" alt="${t[d.k][0]}" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h3>${t[d.k][0]}</h3><span class="price">${d.price} ${t.cur}</span></div>
+            <p>${t[d.k][1]}</p>
+            ${d.tag ? `<span class="tag">${t.tags[d.tag]}</span>` : ""}
+          </div>
+        </article>`).join("");
+    }
+
+    function renderHours() {
+      const t = T[lang], today = (new Date().getDay() + 6) % 7;
+      document.getElementById("hours").innerHTML = t.days.map((d, i) =>
+        `<li class="${i === today ? "today" : ""}"><span>${d}</span><span>${i === 4 ? t.fri : t.hrs}</span></li>`).join("");
+    }
+
+    function setLang(l) {
+      lang = l; const t = T[l];
+      document.documentElement.lang = l;
+      document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+      document.querySelectorAll("[data-t]").forEach((el) => { const v = t[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+      document.querySelectorAll("[data-t-html]").forEach((el) => { el.innerHTML = t[el.dataset.tHtml]; });
+      document.querySelectorAll("[data-ph]").forEach((el) => { el.placeholder = t[el.dataset.ph]; });
+      document.querySelectorAll(".langs button").forEach((b) => b.classList.toggle("on", b.dataset.lang === l));
+      document.title = { fr: "Dar Zitoun — Restaurant marocain (démo)", ar: "دار زيتون — مطعم مغربي (تجريبي)", en: "Dar Zitoun — Moroccan restaurant (demo)" }[l];
+      renderDishes(); renderHours();
+      try { localStorage.setItem("dz_lang", l); } catch (e) {}
+    }
+
+    document.querySelectorAll(".langs button").forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
+    document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => {
+      cat = b.dataset.cat;
+      document.querySelectorAll(".tab").forEach((x) => x.classList.toggle("on", x === b));
+      renderDishes();
+    }));
+
+    // Gallery + lightbox
+    const grid = document.getElementById("gallery-grid"), lb = document.getElementById("lightbox");
+    grid.innerHTML = GALLERY.map((id, i) => `<figure><img src="${U(id, i === 0 ? 1100 : 600)}" data-big="${U(id, 1600)}" alt="Gallery photo ${i + 1}" loading="lazy"></figure>`).join("");
+    grid.addEventListener("click", (e) => { const img = e.target.closest("img"); if (!img) return; lb.querySelector("img").src = img.dataset.big; lb.classList.add("open"); });
+    lb.addEventListener("click", () => lb.classList.remove("open"));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+    // Reservation (demo)
+    const form = document.getElementById("form");
+    form.date.min = new Date().toISOString().slice(0, 10);
+    form.addEventListener("submit", (e) => { e.preventDefault(); document.getElementById("ok").classList.add("show"); form.reset(); });
+
+    // Header + mobile menu
+    const bar = document.getElementById("top-bar"), links = document.getElementById("links");
+    const onScroll = () => bar.classList.toggle("scrolled", scrollY > 40);
+    addEventListener("scroll", onScroll); onScroll();
+    document.getElementById("burger").addEventListener("click", () => links.classList.toggle("open"));
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => links.classList.remove("open")));
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((es) => es.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: .12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+    setLang(lang);
+  </script>
+</body>
+</html>
