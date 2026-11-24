@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Kufi+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <div class="spotlight" aria-hidden="true"></div>
@@ -37,12 +37,17 @@
       </nav>
 
       <div class="header-tools">
-        <select id="lang-select" class="tool-btn" aria-label="Language">
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
-          <option value="ar">AR</option>
-          <option value="es">ES</option>
-        </select>
+        <div class="lang-menu" id="lang-menu">
+          <button type="button" class="tool-btn lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+            <i class="ri-global-line"></i><span id="lang-current">EN</span><i class="ri-arrow-down-s-line chev"></i>
+          </button>
+          <ul class="lang-list" id="lang-list" role="listbox" aria-label="Language">
+            <li role="option" data-lang="en" tabindex="-1"><span class="code">EN</span><span class="name">English</span><i class="ri-check-line tick"></i></li>
+            <li role="option" data-lang="fr" tabindex="-1"><span class="code">FR</span><span class="name">Français</span><i class="ri-check-line tick"></i></li>
+            <li role="option" data-lang="ar" tabindex="-1"><span class="code">AR</span><span class="name">العربية</span><i class="ri-check-line tick"></i></li>
+            <li role="option" data-lang="es" tabindex="-1"><span class="code">ES</span><span class="name">Español</span><i class="ri-check-line tick"></i></li>
+          </ul>
+        </div>
         <button id="theme-btn" class="tool-btn" aria-label="Toggle theme"><i class="ri-sun-line"></i></button>
         <button id="menu-btn" class="tool-btn menu-btn" aria-label="Menu" aria-expanded="false"><i class="ri-menu-line"></i></button>
       </div>
@@ -332,6 +337,6 @@
     <a href="#top" class="to-top" aria-label="Back to top"><i class="ri-arrow-up-line"></i></a>
   </footer>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>

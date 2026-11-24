@@ -347,8 +347,11 @@ function applyLanguage(lang) {
   document.documentElement.lang = lang;
   document.documentElement.dir = RTL_LANGS.includes(lang) ? "rtl" : "ltr";
 
-  const select = document.getElementById("lang-select");
-  if (select) select.value = lang;
+  const current = document.getElementById("lang-current");
+  if (current) current.textContent = lang.toUpperCase();
+  document.querySelectorAll("#lang-list [data-lang]").forEach((li) => {
+    li.setAttribute("aria-selected", li.dataset.lang === lang ? "true" : "false");
+  });
 
   store.set("lang", lang);
 }
@@ -386,7 +389,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Language
   applyLanguage(detectLanguage());
-  document.getElementById("lang-select").addEventListener("change", (e) => applyLanguage(e.target.value));
+  // Custom language menu
+  const langMenu = document.getElementById("lang-menu");
+  const langBtn = document.getElementById("lang-btn");
+  const langItems = [...document.querySelectorAll("#lang-list [data-lang]")];
+  const setOpen = (open) => {
+    langMenu.classList.toggle("open", open);
+    langBtn.setAttribute("aria-expanded", open);
+    if (open) (langItems.find((li) => li.getAttribute("aria-selected") === "true") || langItems[0]).focus();
+  };
+  langBtn.addEventListener("click", (e) => { e.stopPropagation(); setOpen(!langMenu.classList.contains("open")); });
+  langItems.forEach((li, i) => {
+    li.addEventListener("click", () => { applyLanguage(li.dataset.lang); setOpen(false); langBtn.focus(); });
+    li.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); langItems[(i + 1) % langItems.length].focus(); }
+      if (e.key === "ArrowUp") { e.preventDefault(); langItems[(i - 1 + langItems.length) % langItems.length].focus(); }
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); li.click(); }
+      if (e.key === "Escape") { setOpen(false); langBtn.focus(); }
+    });
+  });
+  document.addEventListener("click", (e) => { if (!langMenu.contains(e.target)) setOpen(false); });
 
   // Theme
   applyTheme(store.get("theme") || "dark");
