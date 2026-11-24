@@ -644,3 +644,8 @@ html.light .tilt:hover { box-shadow: 0 35px 70px rgba(15, 23, 42, .16); }
 @media (prefers-reduced-motion: reduce) {
   .tilt, .scene3d .avatar-ring, .orbit { transform: none !important; }
 }
+
+/* Orbit logos: flat layer so the logo never hides behind its box */
+.orb { transform-style: flat; backface-visibility: visible; }
+.orb img { width: 58%; height: 58%; object-fit: contain; pointer-events: none; }
+.tech-list i[class^="devicon-"] { font-size: 1rem; }
