@@ -723,3 +723,9 @@ html.light .lang-list { box-shadow: 0 20px 45px rgba(15, 23, 42, .12); }
 .lang-list li[aria-selected="true"] { color: var(--accent); }
 .lang-list li[aria-selected="true"] .code { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
 .lang-list li[aria-selected="true"] .tick { opacity: 1; }
+
+/* Card buttons: live demo + code */
+.card-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; }
+.card-actions .btn-sm { margin-top: 0; }
+.btn-live { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+.btn-live:hover { color: #fff; border-color: transparent; filter: brightness(1.08); }

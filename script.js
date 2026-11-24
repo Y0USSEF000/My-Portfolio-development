@@ -3,6 +3,9 @@
 // =======================
 const I18N = {
   en: {
+    p_resto_badge: "Business website",
+    p_resto_desc: "A demo website for a Moroccan restaurant: menu with prices, photo gallery, opening hours, map, booking form and WhatsApp button, in French, Arabic and English.",
+    btn_live: "Live demo",
     filter_all: "All",
     filter_web: "Websites & web apps",
     filter_mobile: "Mobile apps",
@@ -83,6 +86,9 @@ const I18N = {
   },
 
   fr: {
+    p_resto_badge: "Site vitrine",
+    p_resto_desc: "Un site de démonstration pour un restaurant marocain : menu avec prix, galerie photos, horaires, carte, formulaire de réservation et bouton WhatsApp, en français, arabe et anglais.",
+    btn_live: "Voir le site",
     filter_all: "Tous",
     filter_web: "Sites & apps web",
     filter_mobile: "Apps mobiles",
@@ -163,6 +169,9 @@ const I18N = {
   },
 
   ar: {
+    p_resto_badge: "موقع تعريفي",
+    p_resto_desc: "موقع تجريبي لمطعم مغربي: قائمة بالأسعار، معرض صور، أوقات العمل، خريطة، استمارة حجز وزر واتساب، بالفرنسية والعربية والإنجليزية.",
+    btn_live: "المعاينة الحية",
     filter_all: "الكل",
     filter_web: "مواقع وتطبيقات ويب",
     filter_mobile: "تطبيقات الهاتف",
@@ -243,6 +252,9 @@ const I18N = {
   },
 
   es: {
+    p_resto_badge: "Web para negocio",
+    p_resto_desc: "Una web de demostración para un restaurante marroquí: menú con precios, galería de fotos, horarios, mapa, formulario de reserva y botón de WhatsApp, en francés, árabe e inglés.",
+    btn_live: "Ver demo",
     filter_all: "Todos",
     filter_web: "Webs y apps web",
     filter_mobile: "Apps móviles",
