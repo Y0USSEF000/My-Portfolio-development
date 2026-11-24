@@ -370,6 +370,11 @@ function applyTheme(theme) {
   if (btn) btn.innerHTML = light ? '<i class="ri-moon-line"></i>' : '<i class="ri-sun-line"></i>';
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.content = light ? "#f7f8fc" : "#07090c";
+  // Project images: use the light or dark version to match the theme
+  document.querySelectorAll("img[data-src-light]").forEach((img) => {
+    const next = light ? img.dataset.srcLight : img.dataset.srcDark;
+    if (next && img.getAttribute("src") !== next) img.setAttribute("src", next);
+  });
   store.set("theme", theme);
 }
 
