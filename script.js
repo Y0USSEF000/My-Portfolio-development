@@ -5,6 +5,8 @@ const I18N = {
   en: {
     p_resto_badge: "Business website",
     p_resto_desc: "A demo website for a Moroccan restaurant: menu with prices, photo gallery, opening hours, map, booking form and WhatsApp button, in French, Arabic and English.",
+    p_gym_badge: "Business website",
+    p_gym_desc: "A demo website for a gym in Salé: programs, a class schedule by day, monthly/yearly pricing, coaches, a BMI calculator and free-trial booking on WhatsApp, in French, Arabic and English.",
     btn_live: "Live demo",
     filter_all: "All",
     filter_web: "Websites & web apps",
@@ -88,6 +90,8 @@ const I18N = {
   fr: {
     p_resto_badge: "Site vitrine",
     p_resto_desc: "Un site de démonstration pour un restaurant marocain : menu avec prix, galerie photos, horaires, carte, formulaire de réservation et bouton WhatsApp, en français, arabe et anglais.",
+    p_gym_badge: "Site vitrine",
+    p_gym_desc: "Un site de démonstration pour une salle de sport à Salé : programmes, planning des cours par jour, tarifs mensuels/annuels, coachs, calculateur d'IMC et réservation d'essai sur WhatsApp, en français, arabe et anglais.",
     btn_live: "Voir le site",
     filter_all: "Tous",
     filter_web: "Sites & apps web",
@@ -171,6 +175,8 @@ const I18N = {
   ar: {
     p_resto_badge: "موقع تعريفي",
     p_resto_desc: "موقع تجريبي لمطعم مغربي: قائمة بالأسعار، معرض صور، أوقات العمل، خريطة، استمارة حجز وزر واتساب، بالفرنسية والعربية والإنجليزية.",
+    p_gym_badge: "موقع تعريفي",
+    p_gym_desc: "موقع تجريبي لنادٍ رياضي في سلا: البرامج، جدول الحصص حسب اليوم، أسعار شهرية وسنوية، المدربون، حاسبة مؤشر كتلة الجسم وحجز حصة تجريبية عبر واتساب، بالفرنسية والعربية والإنجليزية.",
     btn_live: "المعاينة الحية",
     filter_all: "الكل",
     filter_web: "مواقع وتطبيقات ويب",
@@ -254,6 +260,8 @@ const I18N = {
   es: {
     p_resto_badge: "Web para negocio",
     p_resto_desc: "Una web de demostración para un restaurante marroquí: menú con precios, galería de fotos, horarios, mapa, formulario de reserva y botón de WhatsApp, en francés, árabe e inglés.",
+    p_gym_badge: "Web para negocio",
+    p_gym_desc: "Una web de demostración para un gimnasio en Salé: programas, horario de clases por día, precios mensuales/anuales, entrenadores, calculadora de IMC y reserva de prueba por WhatsApp, en francés, árabe e inglés.",
     btn_live: "Ver demo",
     filter_all: "Todos",
     filter_web: "Webs y apps web",
