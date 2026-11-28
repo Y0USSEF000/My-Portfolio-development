@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Fit — Salle de sport à Salé (démo)</title>
+  <meta name="description" content="Demo gym website by Youssef Dahi: programs, class schedule, membership plans, coaches, BMI calculator and free-trial booking, in French, Arabic and English." />
+  <meta name="theme-color" content="#0d0f12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --bg-2: #14171c;
+      --card: #191d23;
+      --line: #262b33;
+      --lime: #c6ff3d;
+      --lime-2: #a8e01f;
+      --orange: #ff6b2c;
+      --text: #f2f4f7;
+      --muted: #9aa3ae;
+      --radius: 16px;
+      --display: "Bebas Neue", Impact, sans-serif;
+      --sans: "Inter", system-ui, sans-serif;
+    }
+    html[lang="ar"] { --display: "Cairo", sans-serif; --sans: "Cairo", system-ui, sans-serif; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { margin: 0; font: 16px/1.65 var(--sans); color: var(--text); background: var(--bg); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1; margin: 0 0 .4em; letter-spacing: .01em; }
+    html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { font-weight: 800; line-height: 1.3; }
+    h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+    p { margin: 0 0 1em; }
+    .container { width: min(1160px, 92%); margin-inline: auto; }
+    .eyebrow { color: var(--lime); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: .78rem; margin-bottom: .6rem; }
+    html[lang="ar"] .eyebrow { letter-spacing: 0; font-size: .95rem; }
+    .muted { color: var(--muted); }
+    section { padding: 96px 0; }
+    .section-head { max-width: 640px; margin-bottom: 44px; }
+    .accent { color: var(--lime); }
+
+    .btn { display: inline-flex; align-items: center; gap: .5em; padding: .9em 1.6em; border-radius: 999px; font-weight: 700; border: 2px solid transparent; background: transparent; color: inherit; cursor: pointer; transition: transform .2s, background .2s, color .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-lime { background: var(--lime); color: #0d0f12; }
+    .btn-lime:hover { background: var(--lime-2); }
+    .btn-ghost { border-color: rgba(255,255,255,.3); color: #fff; }
+    .btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* Demo ribbon */
+    .demo-bar { background: var(--lime); color: #0d0f12; font-size: .82rem; font-weight: 600; text-align: center; padding: 6px 12px; }
+    .demo-bar a { text-decoration: underline; }
+
+    /* Nav */
+    header { position: sticky; top: 0; z-index: 50; background: rgba(13,15,18,.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 16px; }
+    .logo { font-family: "Bebas Neue", sans-serif; font-size: 1.9rem; letter-spacing: .04em; display: flex; align-items: center; gap: 8px; }
+    .logo i { color: var(--lime); font-size: 1.6rem; }
+    .nav-links { display: flex; gap: 26px; font-weight: 500; font-size: .95rem; }
+    .nav-links a { color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+    .lang button { background: none; border: 0; color: var(--muted); padding: 6px 10px; cursor: pointer; font-size: .8rem; font-weight: 700; }
+    .lang button.active { background: var(--lime); color: #0d0f12; }
+    .menu-btn { display: none; background: none; border: 0; color: var(--text); font-size: 1.6rem; cursor: pointer; }
+    .nav .btn { padding: .6em 1.2em; font-size: .9rem; }
+
+    /* Hero */
+    .hero { position: relative; min-height: calc(100vh - 100px); display: flex; align-items: center; padding: 80px 0; overflow: hidden;
+      background: linear-gradient(90deg, rgba(13,15,18,.96) 0%, rgba(13,15,18,.75) 45%, rgba(13,15,18,.25) 100%), url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=70&auto=format&fit=crop") center/cover; }
+    html[dir="rtl"] .hero { background: linear-gradient(270deg, rgba(13,15,18,.96) 0%, rgba(13,15,18,.75) 45%, rgba(13,15,18,.25) 100%), url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=70&auto=format&fit=crop") center/cover; }
+    .hero h1 { font-size: clamp(3.6rem, 9vw, 7.2rem); max-width: 11ch; }
+    html[lang="ar"] .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+    .hero p.lead { font-size: 1.15rem; color: #cfd5dc; max-width: 520px; margin-bottom: 2em; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
+    .hero-stats strong { display: block; font-family: "Bebas Neue", sans-serif; font-size: 2.8rem; color: var(--lime); line-height: 1; }
+    .hero-stats span { color: var(--muted); font-size: .9rem; }
+
+    /* Marquee */
+    .marquee { background: var(--lime); color: #0d0f12; overflow: hidden; padding: 14px 0; }
+    .marquee-track { display: flex; gap: 48px; width: max-content; animation: scroll 28s linear infinite; font-family: "Bebas Neue", sans-serif; font-size: 1.7rem; letter-spacing: .05em; }
+    .marquee-track span { display: flex; align-items: center; gap: 48px; white-space: nowrap; }
+    .marquee-track span::after { content: "✦"; font-size: 1.1rem; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+    html[dir="rtl"] .marquee-track { animation-name: scroll-rtl; }
+    @keyframes scroll-rtl { to { transform: translateX(50%); } }
+
+    /* Programs */
+    .grid { display: grid; gap: 22px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .program { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; background: var(--card); }
+    .program img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .program:hover img { transform: scale(1.06); }
+    .program .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.92)); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+    .program h3 { font-size: 2rem; margin-bottom: .2em; }
+    .program p { color: #c9cfd6; font-size: .93rem; margin: 0; }
+    .program .level { position: absolute; top: 16px; inset-inline-start: 16px; background: rgba(13,15,18,.75); border: 1px solid var(--line); padding: 4px 12px; border-radius: 999px; font-size: .78rem; font-weight: 600; color: var(--lime); }
+
+    /* Schedule */
+    .schedule-wrap { background: var(--bg-2); }
+    .days { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+    .days button { background: var(--card); border: 1px solid var(--line); color: var(--muted); padding: 10px 18px; border-radius: 999px; cursor: pointer; font-weight: 600; transition: .2s; }
+    .days button.active, .days button:hover { background: var(--lime); color: #0d0f12; border-color: var(--lime); }
+    .classes { display: grid; gap: 12px; }
+    .class-row { display: grid; grid-template-columns: 120px 1fr auto auto; align-items: center; gap: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; animation: fade .35s ease; }
+    .class-row time { font-family: "Bebas Neue", sans-serif; font-size: 1.6rem; color: var(--lime); }
+    .class-row h4 { margin: 0; font-size: 1.05rem; }
+    .class-row .coach { color: var(--muted); font-size: .88rem; }
+    .class-row .spots { font-size: .85rem; color: var(--muted); white-space: nowrap; }
+    .class-row .spots.low { color: var(--orange); font-weight: 600; }
+    .class-row .btn { padding: .55em 1.1em; font-size: .85rem; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
+
+    /* Pricing */
+    .billing { display: inline-flex; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 36px; }
+    .billing button { background: none; border: 0; color: var(--muted); padding: 10px 20px; border-radius: 999px; cursor: pointer; font-weight: 600; }
+    .billing button.active { background: var(--lime); color: #0d0f12; }
+    .billing small { background: var(--orange); color: #fff; border-radius: 999px; padding: 1px 8px; font-size: .7rem; margin-inline-start: 6px; }
+    .plan { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 34px 30px; display: flex; flex-direction: column; position: relative; }
+    .plan.featured { border: 2px solid var(--lime); transform: translateY(-10px); box-shadow: 0 24px 60px rgba(198,255,61,.08); }
+    .plan .tag { position: absolute; top: -14px; inset-inline-start: 30px; background: var(--lime); color: #0d0f12; font-size: .75rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+    .plan h3 { font-size: 1.9rem; }
+    .price { display: flex; align-items: baseline; gap: 6px; margin: 10px 0 4px; }
+    .price strong { font-family: "Bebas Neue", sans-serif; font-size: 3.6rem; line-height: 1; }
+    .price span { color: var(--muted); }
+    .plan .note { color: var(--muted); font-size: .85rem; min-height: 1.4em; }
+    .plan ul { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 10px; flex: 1; }
+    .plan li { display: flex; gap: 10px; color: #d4d9df; font-size: .95rem; }
+    .plan li i { color: var(--lime); }
+    .plan li.off { color: #5d6570; }
+    .plan li.off i { color: #5d6570; }
+    .plan .btn { justify-content: center; }
+
+    /* Coaches */
+    .coach-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .coach-card img { aspect-ratio: 1/1; object-fit: cover; width: 100%; filter: grayscale(.35); transition: filter .4s; }
+    .coach-card:hover img { filter: none; }
+    .coach-card .body { padding: 18px 20px; }
+    .coach-card h3 { font-size: 1.6rem; margin-bottom: .1em; }
+    .coach-card .role { color: var(--lime); font-size: .88rem; font-weight: 600; }
+    .coach-card p { color: var(--muted); font-size: .88rem; margin: .6em 0 0; }
+
+    /* BMI */
+    .bmi { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .bmi-box { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px; }
+    .field { display: grid; gap: 6px; margin-bottom: 16px; }
+    .field label { font-size: .85rem; color: var(--muted); font-weight: 600; }
+    .field input, .field select { background: var(--bg); border: 1px solid var(--line); color: var(--text); border-radius: 12px; padding: 12px 14px; width: 100%; }
+    .field input:focus, .field select:focus { outline: 2px solid var(--lime); border-color: transparent; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .bmi-result { margin-top: 18px; padding: 18px; border-radius: 14px; background: var(--bg); border: 1px dashed var(--line); min-height: 92px; }
+    .bmi-result strong { font-family: "Bebas Neue", sans-serif; font-size: 2.6rem; color: var(--lime); line-height: 1; }
+    .scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 22px; }
+    .scale div { padding: 12px 8px; border-radius: 10px; background: var(--card); border: 1px solid var(--line); text-align: center; font-size: .82rem; color: var(--muted); }
+    .scale div b { display: block; color: var(--text); font-size: .95rem; }
+    .scale div.on { border-color: var(--lime); color: var(--lime); }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 14px; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+    .gallery img:first-child { grid-row: span 2; }
+
+    /* Trial */
+    .trial { background: linear-gradient(135deg, #1a2208, #0d0f12 60%); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .trial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .perks { list-style: none; padding: 0; display: grid; gap: 14px; margin: 26px 0; }
+    .perks li { display: flex; gap: 12px; align-items: flex-start; }
+    .perks i { background: rgba(198,255,61,.12); color: var(--lime); width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none; font-size: 1.2rem; }
+    .form { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 32px; }
+    .form .btn { width: 100%; justify-content: center; margin-top: 6px; }
+    .form small { display: block; color: var(--muted); margin-top: 10px; font-size: .8rem; text-align: center; }
+
+    /* FAQ */
+    .faq { max-width: 780px; }
+    details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin-bottom: 12px; }
+    summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--lime); font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    /* Contact */
+    .contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 28px; }
+    .info { display: grid; gap: 18px; }
+    .info-item { display: flex; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+    .info-item i { color: var(--lime); font-size: 1.4rem; }
+    .info-item h4 { margin: 0 0 2px; }
+    .info-item p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .map { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); min-height: 360px; }
+    .map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; filter: invert(.9) hue-rotate(180deg) saturate(.6); }
+
+    footer { border-top: 1px solid var(--line); padding: 36px 0; color: var(--muted); font-size: .9rem; }
+    .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .socials { display: flex; gap: 10px; }
+    .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: .2s; }
+    .socials a:hover { background: var(--lime); color: #0d0f12; border-color: var(--lime); }
+
+    .wa-float { position: fixed; bottom: 22px; inset-inline-end: 22px; z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; font-size: 1.9rem; box-shadow: 0 10px 30px rgba(37,211,102,.35); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+
+    .toast { position: fixed; bottom: 96px; left: 50%; transform: translate(-50%, 20px); background: var(--lime); color: #0d0f12; padding: 12px 22px; border-radius: 999px; font-weight: 600; opacity: 0; pointer-events: none; transition: .3s; z-index: 70; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s, transform .7s; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (max-width: 960px) {
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .bmi, .trial-grid, .contact { grid-template-columns: 1fr; }
+      .plan.featured { transform: none; }
+      .nav-links { position: fixed; inset: 70px 0 auto 0; background: var(--bg); flex-direction: column; padding: 24px 6%; gap: 18px; border-bottom: 1px solid var(--line); transform: translateY(-140%); transition: transform .3s; }
+      .nav-links.open { transform: none; }
+      .menu-btn { display: block; }
+      .nav .btn { display: none; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 72px 0; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .class-row { grid-template-columns: 80px 1fr; }
+      .class-row .spots, .class-row .btn { grid-column: 2; justify-self: start; }
+      .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 140px 140px; }
+      .gallery img:first-child { grid-column: span 2; grid-row: auto; }
+      .hero-stats { gap: 26px; }
+      .scale { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+
+<div class="demo-bar"><span data-i18n="demo">Site de démonstration réalisé par Youssef Dahi — Atlas Fit est une salle fictive.</span> <a href="../../" data-i18n="demo_link">Voir le portfolio</a></div>
+
+<header>
+  <div class="container nav">
+    <a href="#top" class="logo"><i class="ri-fire-fill"></i>ATLAS FIT</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#programs" data-i18n="nav_programs">Programmes</a>
+      <a href="#schedule" data-i18n="nav_schedule">Planning</a>
+      <a href="#pricing" data-i18n="nav_pricing">Tarifs</a>
+      <a href="#coaches" data-i18n="nav_coaches">Coachs</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="fr" class="active">FR</button><button data-lang="ar">ع</button><button data-lang="en">EN</button>
+      </div>
+      <a href="#trial" class="btn btn-lime" data-i18n="nav_cta">Séance gratuite</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="ri-menu-line"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" data-i18n="hero_eyebrow">Salle de sport · Salé</div>
+      <h1 data-i18n-html="hero_title">Plus fort <span class="accent">chaque jour</span></h1>
+      <p class="lead" data-i18n="hero_lead">Musculation, CrossFit, boxe et cours collectifs, avec des coachs diplômés qui suivent vos progrès. Ouvert 7j/7, de 6h à 23h.</p>
+      <div class="hero-cta">
+        <a href="#trial" class="btn btn-lime"><i class="ri-flashlight-fill"></i><span data-i18n="hero_cta1">Réserver ma séance gratuite</span></a>
+        <a href="#pricing" class="btn btn-ghost" data-i18n="hero_cta2">Voir les tarifs</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="1200">0</strong><span data-i18n="stat1">membres actifs</span></div>
+        <div><strong data-count="40">0</strong><span data-i18n="stat2">cours par semaine</span></div>
+        <div><strong data-count="12">0</strong><span data-i18n="stat3">coachs certifiés</span></div>
+        <div><strong data-count="900" data-suffix="m²">0</strong><span data-i18n="stat4">d'espace d'entraînement</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <section id="programs">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="prog_eyebrow">Nos programmes</div>
+        <h2 data-i18n="prog_title">Un entraînement pour chaque objectif</h2>
+        <p class="muted" data-i18n="prog_lead">Perte de poids, prise de masse ou simple forme : choisissez votre discipline, nos coachs s'occupent du reste.</p>
+      </div>
+      <div class="grid grid-3" id="programGrid"></div>
+    </div>
+  </section>
+
+  <section id="schedule" class="schedule-wrap">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="sch_eyebrow">Planning des cours</div>
+        <h2 data-i18n="sch_title">Trouvez votre créneau</h2>
+        <p class="muted" data-i18n="sch_lead">Plus de 40 cours collectifs par semaine. Les places sont limitées : réservez à l'avance.</p>
+      </div>
+      <div class="days reveal" id="days"></div>
+      <div class="classes" id="classes"></div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container" style="text-align:center">
+      <div class="section-head reveal" style="margin-inline:auto">
+        <div class="eyebrow" data-i18n="price_eyebrow">Abonnements</div>
+        <h2 data-i18n="price_title">Des prix simples, sans frais cachés</h2>
+        <p class="muted" data-i18n="price_lead">Sans engagement sur la formule mensuelle. Frais d'inscription offerts ce mois-ci.</p>
+      </div>
+      <div class="billing reveal">
+        <button class="active" data-billing="month" data-i18n="bill_month">Mensuel</button>
+        <button data-billing="year"><span data-i18n="bill_year">Annuel</span><small>-20%</small></button>
+      </div>
+      <div class="grid grid-3" id="plans" style="text-align:start"></div>
+    </div>
+  </section>
+
+  <section id="coaches" class="schedule-wrap">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="coach_eyebrow">L'équipe</div>
+        <h2 data-i18n="coach_title">Des coachs qui vous poussent plus loin</h2>
+      </div>
+      <div class="grid grid-4" id="coachGrid"></div>
+    </div>
+  </section>
+
+  <section id="bmi">
+    <div class="container bmi">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="bmi_eyebrow">Outil gratuit</div>
+        <h2 data-i18n="bmi_title">Calculez votre IMC</h2>
+        <p class="muted" data-i18n="bmi_lead">L'indice de masse corporelle donne une première idée de votre point de départ. Votre coach fera un bilan complet lors de la séance d'essai.</p>
+        <div class="scale" id="scale">
+          <div data-k="under"><b>&lt; 18,5</b><span data-i18n="bmi_under">Insuffisant</span></div>
+          <div data-k="normal"><b>18,5 – 24,9</b><span data-i18n="bmi_normal">Normal</span></div>
+          <div data-k="over"><b>25 – 29,9</b><span data-i18n="bmi_over">Surpoids</span></div>
+          <div data-k="obese"><b>≥ 30</b><span data-i18n="bmi_obese">Obésité</span></div>
+        </div>
+      </div>
+      <form class="bmi-box reveal" id="bmiForm">
+        <div class="row2">
+          <div class="field"><label for="h" data-i18n="bmi_h">Taille (cm)</label><input id="h" type="number" min="100" max="230" value="175" required></div>
+          <div class="field"><label for="w" data-i18n="bmi_w">Poids (kg)</label><input id="w" type="number" min="30" max="250" value="78" required></div>
+        </div>
+        <button class="btn btn-lime" style="width:100%;justify-content:center" data-i18n="bmi_btn">Calculer</button>
+        <div class="bmi-result" id="bmiResult" aria-live="polite"><span class="muted" data-i18n="bmi_hint">Entrez votre taille et votre poids.</span></div>
+      </form>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="gal_eyebrow">La salle</div>
+        <h2 data-i18n="gal_title">900 m² d'équipement moderne</h2>
+      </div>
+      <div class="gallery reveal">
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1100&q=70&auto=format&fit=crop" alt="Espace musculation" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=70&auto=format&fit=crop" alt="Cardio" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=70&auto=format&fit=crop" alt="Haltères" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&q=70&auto=format&fit=crop" alt="Entraînement" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=70&auto=format&fit=crop" alt="Coaching" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section id="trial" class="trial">
+    <div class="container trial-grid">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="trial_eyebrow">Essai gratuit</div>
+        <h2 data-i18n="trial_title">Votre première séance est offerte</h2>
+        <p class="muted" data-i18n="trial_lead">Venez découvrir la salle, sans engagement. Un coach vous accueille et prépare un programme adapté à votre objectif.</p>
+        <ul class="perks">
+          <li><i class="ri-user-star-line"></i><div><strong data-i18n="perk1">Bilan avec un coach</strong><div class="muted" data-i18n="perk1d">Objectif, niveau, IMC et conseils.</div></div></li>
+          <li><i class="ri-calendar-check-line"></i><div><strong data-i18n="perk2">Accès à tous les cours</strong><div class="muted" data-i18n="perk2d">Pendant toute la journée d'essai.</div></div></li>
+          <li><i class="ri-whatsapp-line"></i><div><strong data-i18n="perk3">Confirmation sur WhatsApp</strong><div class="muted" data-i18n="perk3d">Réponse en moins d'une heure.</div></div></li>
+        </ul>
+      </div>
+      <form class="form reveal" id="trialForm">
+        <div class="field"><label for="name" data-i18n="f_name">Nom complet</label><input id="name" required autocomplete="name"></div>
+        <div class="field"><label for="phone" data-i18n="f_phone">Téléphone</label><input id="phone" type="tel" required placeholder="06 XX XX XX XX" autocomplete="tel"></div>
+        <div class="row2">
+          <div class="field"><label for="goal" data-i18n="f_goal">Objectif</label>
+            <select id="goal">
+              <option value="g1" data-i18n="g1">Perdre du poids</option>
+              <option value="g2" data-i18n="g2">Prendre du muscle</option>
+              <option value="g3" data-i18n="g3">Être en forme</option>
+              <option value="g4" data-i18n="g4">Préparer une compétition</option>
+            </select></div>
+          <div class="field"><label for="date" data-i18n="f_date">Date souhaitée</label><input id="date" type="date" required></div>
+        </div>
+        <button class="btn btn-lime"><i class="ri-whatsapp-line"></i><span data-i18n="f_btn">Réserver sur WhatsApp</span></button>
+        <small data-i18n="f_note">Le formulaire ouvre WhatsApp avec votre demande déjà écrite.</small>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container faq">
+      <div class="section-head reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2 data-i18n="faq_title">Questions fréquentes</h2>
+      </div>
+      <div id="faqList"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="schedule-wrap">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="ct_eyebrow">Nous trouver</div>
+        <h2 data-i18n="ct_title">Passez nous voir</h2>
+      </div>
+      <div class="contact">
+        <div class="info reveal">
+          <div class="info-item"><i class="ri-map-pin-2-line"></i><div><h4 data-i18n="ct_addr">Adresse</h4><p data-i18n="ct_addr_v">Avenue Mohammed V, Tabriquet, Salé</p></div></div>
+          <div class="info-item"><i class="ri-time-line"></i><div><h4 data-i18n="ct_hours">Horaires</h4><p data-i18n="ct_hours_v">Lun – Sam : 6h – 23h · Dim : 8h – 20h</p></div></div>
+          <div class="info-item"><i class="ri-phone-line"></i><div><h4 data-i18n="ct_phone">Téléphone</h4><p dir="ltr">+212 6 00 00 00 00</p></div></div>
+          <div class="info-item"><i class="ri-women-line"></i><div><h4 data-i18n="ct_ladies">Espace femmes</h4><p data-i18n="ct_ladies_v">Salle et vestiaires réservés, coachs femmes.</p></div></div>
+        </div>
+        <div class="map reveal"><iframe title="Map" loading="lazy" src="https://maps.google.com/maps?q=Tabriquet%20Sal%C3%A9&z=14&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div><span class="logo" style="font-size:1.4rem"><i class="ri-fire-fill"></i>ATLAS FIT</span><div data-i18n="foot">© 2026 Atlas Fit (démo). Site réalisé par Youssef Dahi.</div></div>
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+      <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+      <a href="#" aria-label="TikTok"><i class="ri-tiktok-fill"></i></a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/212600000000" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+<div class="toast" id="toast"></div>
+
+<script>
+const WA = "212600000000";
+const U = (id, w = 800) => `https://images.unsplash.com/${id}?w=${w}&q=70&auto=format&fit=crop`;
+
+const T = {
+  fr: {
+    demo: "Site de démonstration réalisé par Youssef Dahi — Atlas Fit est une salle fictive.", demo_link: "Voir le portfolio",
+    nav_programs: "Programmes", nav_schedule: "Planning", nav_pricing: "Tarifs", nav_coaches: "Coachs", nav_contact: "Contact", nav_cta: "Séance gratuite",
+    hero_eyebrow: "Salle de sport · Salé", hero_title: 'Plus fort <span class="accent">chaque jour</span>',
+    hero_lead: "Musculation, CrossFit, boxe et cours collectifs, avec des coachs diplômés qui suivent vos progrès. Ouvert 7j/7, de 6h à 23h.",
+    hero_cta1: "Réserver ma séance gratuite", hero_cta2: "Voir les tarifs",
+    stat1: "membres actifs", stat2: "cours par semaine", stat3: "coachs certifiés", stat4: "d'espace d'entraînement",
+    marquee: ["Musculation", "CrossFit", "Boxe", "Yoga", "HIIT", "Cardio", "Espace femmes", "Coaching privé"],
+    prog_eyebrow: "Nos programmes", prog_title: "Un entraînement pour chaque objectif", prog_lead: "Perte de poids, prise de masse ou simple forme : choisissez votre discipline, nos coachs s'occupent du reste.",
+    programs: [
+      ["Musculation", "Machines, poids libres et suivi personnalisé pour gagner en force.", "Tous niveaux"],
+      ["CrossFit", "Séances intenses en petit groupe : force, cardio et dépassement de soi.", "Intermédiaire"],
+      ["Boxe", "Technique, sac et conditionnement physique avec un ancien champion.", "Tous niveaux"],
+      ["HIIT", "30 minutes pour brûler un maximum de calories.", "Intermédiaire"],
+      ["Yoga & mobilité", "Souplesse, respiration et récupération.", "Débutant"],
+      ["Coaching privé", "Un coach rien que pour vous, avec plan nutrition.", "Sur mesure"]
+    ],
+    sch_eyebrow: "Planning des cours", sch_title: "Trouvez votre créneau", sch_lead: "Plus de 40 cours collectifs par semaine. Les places sont limitées : réservez à l'avance.",
+    days: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"], spots: n => `${n} places restantes`, full: "Complet", book: "Réserver", booked: c => `Demande envoyée pour ${c} via WhatsApp`,
+    price_eyebrow: "Abonnements", price_title: "Des prix simples, sans frais cachés", price_lead: "Sans engagement sur la formule mensuelle. Frais d'inscription offerts ce mois-ci.",
+    bill_month: "Mensuel", bill_year: "Annuel", per_month: "DH / mois", billed_year: t => `Soit ${t} DH payés une fois par an`, popular: "Le plus choisi", choose: "Choisir",
+    plans: [
+      ["Basic", ["Accès musculation et cardio", "Vestiaires et casiers", "Application de suivi", "Cours collectifs", "Coaching privé"], 3],
+      ["Premium", ["Accès musculation et cardio", "Vestiaires et casiers", "Application de suivi", "Cours collectifs illimités", "1 séance coaching / mois"], 5],
+      ["Elite", ["Accès musculation et cardio", "Vestiaires, casiers et sauna", "Application de suivi", "Cours collectifs illimités", "4 séances coaching + plan nutrition"], 5]
+    ],
+    coach_eyebrow: "L'équipe", coach_title: "Des coachs qui vous poussent plus loin",
+    coaches: [["Yassine", "Musculation & force", "8 ans d'expérience, préparation physique."], ["Salma", "Yoga & espace femmes", "Mobilité, posture et remise en forme."], ["Omar", "Boxe", "Ancien boxeur amateur, technique et cardio."], ["Hamza", "CrossFit & HIIT", "Coach certifié, entraînement fonctionnel."]],
+    bmi_eyebrow: "Outil gratuit", bmi_title: "Calculez votre IMC", bmi_lead: "L'indice de masse corporelle donne une première idée de votre point de départ. Votre coach fera un bilan complet lors de la séance d'essai.",
+    bmi_under: "Insuffisant", bmi_normal: "Normal", bmi_over: "Surpoids", bmi_obese: "Obésité", bmi_h: "Taille (cm)", bmi_w: "Poids (kg)", bmi_btn: "Calculer", bmi_hint: "Entrez votre taille et votre poids.",
+    bmi_msg: { under: "Notre programme prise de masse peut vous aider.", normal: "Bravo ! Le CrossFit ou la musculation vous feront progresser.", over: "Le HIIT et le cardio sont parfaits pour commencer.", obese: "Un coaching privé vous accompagnera en douceur." },
+    bmi_your: "Votre IMC",
+    gal_eyebrow: "La salle", gal_title: "900 m² d'équipement moderne",
+    trial_eyebrow: "Essai gratuit", trial_title: "Votre première séance est offerte", trial_lead: "Venez découvrir la salle, sans engagement. Un coach vous accueille et prépare un programme adapté à votre objectif.",
+    perk1: "Bilan avec un coach", perk1d: "Objectif, niveau, IMC et conseils.", perk2: "Accès à tous les cours", perk2d: "Pendant toute la journée d'essai.", perk3: "Confirmation sur WhatsApp", perk3d: "Réponse en moins d'une heure.",
+    f_name: "Nom complet", f_phone: "Téléphone", f_goal: "Objectif", f_date: "Date souhaitée", g1: "Perdre du poids", g2: "Prendre du muscle", g3: "Être en forme", g4: "Préparer une compétition",
+    f_btn: "Réserver sur WhatsApp", f_note: "Le formulaire ouvre WhatsApp avec votre demande déjà écrite.",
+    wa_trial: (n, p, g, d) => `Bonjour Atlas Fit, je souhaite réserver ma séance gratuite.\nNom : ${n}\nTéléphone : ${p}\nObjectif : ${g}\nDate : ${d}`,
+    wa_class: (c, d, t) => `Bonjour, je souhaite réserver le cours ${c} (${d} à ${t}).`, wa_plan: p => `Bonjour, je suis intéressé(e) par l'abonnement ${p}.`,
+    faq_title: "Questions fréquentes",
+    faq: [["Faut-il un certificat médical ?", "Il est recommandé, surtout si vous reprenez le sport après une longue pause. Le coach vous posera quelques questions lors du bilan."], ["Y a-t-il un espace réservé aux femmes ?", "Oui, une salle et des vestiaires réservés, avec des coachs femmes et des cours dédiés."], ["Puis-je suspendre mon abonnement ?", "Oui, jusqu'à 30 jours par an (voyage, examen, maladie) sur les formules Premium et Elite."], ["Comment payer ?", "En espèces, par carte bancaire à l'accueil ou par virement."]],
+    ct_eyebrow: "Nous trouver", ct_title: "Passez nous voir", ct_addr: "Adresse", ct_addr_v: "Avenue Mohammed V, Tabriquet, Salé", ct_hours: "Horaires", ct_hours_v: "Lun – Sam : 6h – 23h · Dim : 8h – 20h", ct_phone: "Téléphone", ct_ladies: "Espace femmes", ct_ladies_v: "Salle et vestiaires réservés, coachs femmes.",
+    foot: "© 2026 Atlas Fit (démo). Site réalisé par Youssef Dahi.", title: "Atlas Fit — Salle de sport à Salé (démo)"
+  },
+  en: {
+    demo: "Demo website made by Youssef Dahi. Atlas Fit is a fictional gym.", demo_link: "See the portfolio",
+    nav_programs: "Programs", nav_schedule: "Schedule", nav_pricing: "Pricing", nav_coaches: "Coaches", nav_contact: "Contact", nav_cta: "Free session",
+    hero_eyebrow: "Gym · Salé", hero_title: 'Stronger <span class="accent">every day</span>',
+    hero_lead: "Weights, CrossFit, boxing and group classes, with certified coaches who track your progress. Open 7 days a week, 6am to 11pm.",
+    hero_cta1: "Book my free session", hero_cta2: "See pricing",
+    stat1: "active members", stat2: "classes per week", stat3: "certified coaches", stat4: "of training space",
+    marquee: ["Weights", "CrossFit", "Boxing", "Yoga", "HIIT", "Cardio", "Ladies area", "Personal training"],
+    prog_eyebrow: "Our programs", prog_title: "A workout for every goal", prog_lead: "Lose weight, build muscle or just get fit: pick your discipline and our coaches handle the rest.",
+    programs: [
+      ["Weights", "Machines, free weights and personal follow-up to build strength.", "All levels"],
+      ["CrossFit", "Intense small-group sessions: strength, cardio and pushing your limits.", "Intermediate"],
+      ["Boxing", "Technique, bag work and conditioning with a former champion.", "All levels"],
+      ["HIIT", "30 minutes to burn as many calories as possible.", "Intermediate"],
+      ["Yoga & mobility", "Flexibility, breathing and recovery.", "Beginner"],
+      ["Personal training", "A coach just for you, with a nutrition plan.", "Tailored"]
+    ],
+    sch_eyebrow: "Class schedule", sch_title: "Find your time slot", sch_lead: "Over 40 group classes a week. Spots are limited, so book ahead.",
+    days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], spots: n => `${n} spots left`, full: "Full", book: "Book", booked: c => `Request for ${c} sent via WhatsApp`,
+    price_eyebrow: "Memberships", price_title: "Simple prices, no hidden fees", price_lead: "No commitment on the monthly plan. Sign-up fee waived this month.",
+    bill_month: "Monthly", bill_year: "Yearly", per_month: "MAD / month", billed_year: t => `${t} MAD paid once a year`, popular: "Most popular", choose: "Choose",
+    plans: [
+      ["Basic", ["Weights and cardio area", "Changing rooms and lockers", "Progress-tracking app", "Group classes", "Personal training"], 3],
+      ["Premium", ["Weights and cardio area", "Changing rooms and lockers", "Progress-tracking app", "Unlimited group classes", "1 coaching session / month"], 5],
+      ["Elite", ["Weights and cardio area", "Changing rooms, lockers and sauna", "Progress-tracking app", "Unlimited group classes", "4 coaching sessions + nutrition plan"], 5]
+    ],
+    coach_eyebrow: "The team", coach_title: "Coaches who push you further",
+    coaches: [["Yassine", "Weights & strength", "8 years of experience, athletic training."], ["Salma", "Yoga & ladies area", "Mobility, posture and getting back in shape."], ["Omar", "Boxing", "Former amateur boxer, technique and cardio."], ["Hamza", "CrossFit & HIIT", "Certified coach, functional training."]],
+    bmi_eyebrow: "Free tool", bmi_title: "Check your BMI", bmi_lead: "Body mass index gives a first idea of your starting point. Your coach does a full check during the trial session.",
+    bmi_under: "Underweight", bmi_normal: "Normal", bmi_over: "Overweight", bmi_obese: "Obese", bmi_h: "Height (cm)", bmi_w: "Weight (kg)", bmi_btn: "Calculate", bmi_hint: "Enter your height and weight.",
+    bmi_msg: { under: "Our muscle-gain program can help.", normal: "Great! CrossFit or weights will help you progress.", over: "HIIT and cardio are perfect to start.", obese: "Personal training will guide you step by step." },
+    bmi_your: "Your BMI",
+    gal_eyebrow: "The gym", gal_title: "900 m² of modern equipment",
+    trial_eyebrow: "Free trial", trial_title: "Your first session is free", trial_lead: "Come and see the gym, no commitment. A coach welcomes you and builds a plan for your goal.",
+    perk1: "Check-up with a coach", perk1d: "Goal, level, BMI and advice.", perk2: "Access to every class", perk2d: "For the whole trial day.", perk3: "Confirmation on WhatsApp", perk3d: "Reply in under an hour.",
+    f_name: "Full name", f_phone: "Phone", f_goal: "Goal", f_date: "Preferred date", g1: "Lose weight", g2: "Build muscle", g3: "Get fit", g4: "Prepare for a competition",
+    f_btn: "Book on WhatsApp", f_note: "The form opens WhatsApp with your request already written.",
+    wa_trial: (n, p, g, d) => `Hello Atlas Fit, I'd like to book my free session.\nName: ${n}\nPhone: ${p}\nGoal: ${g}\nDate: ${d}`,
+    wa_class: (c, d, t) => `Hello, I'd like to book the ${c} class (${d} at ${t}).`, wa_plan: p => `Hello, I'm interested in the ${p} membership.`,
+    faq_title: "Frequently asked questions",
+    faq: [["Do I need a medical certificate?", "It's recommended, especially if you're coming back after a long break. Your coach will ask a few questions during the check-up."], ["Is there a ladies-only area?", "Yes: a dedicated room and changing rooms, with female coaches and dedicated classes."], ["Can I pause my membership?", "Yes, up to 30 days a year (travel, exams, illness) on the Premium and Elite plans."], ["How can I pay?", "Cash, card at the front desk, or bank transfer."]],
+    ct_eyebrow: "Find us", ct_title: "Come and visit", ct_addr: "Address", ct_addr_v: "Avenue Mohammed V, Tabriquet, Salé", ct_hours: "Opening hours", ct_hours_v: "Mon – Sat: 6am – 11pm · Sun: 8am – 8pm", ct_phone: "Phone", ct_ladies: "Ladies area", ct_ladies_v: "Dedicated room and changing rooms, female coaches.",
+    foot: "© 2026 Atlas Fit (demo). Website by Youssef Dahi.", title: "Atlas Fit — Gym in Salé (demo)"
+  },
+  ar: {
+    demo: "موقع تجريبي من إنجاز يوسف الداحي — أطلس فيت نادٍ رياضي وهمي.", demo_link: "شاهد الأعمال",
+    nav_programs: "البرامج", nav_schedule: "الجدول", nav_pricing: "الأسعار", nav_coaches: "المدربون", nav_contact: "اتصل بنا", nav_cta: "حصة مجانية",
+    hero_eyebrow: "نادي رياضي · سلا", hero_title: 'أقوى <span class="accent">كل يوم</span>',
+    hero_lead: "كمال الأجسام، كروس فيت، ملاكمة وحصص جماعية، مع مدربين معتمدين يتابعون تقدمك. مفتوح طيلة أيام الأسبوع من 6 صباحاً إلى 11 ليلاً.",
+    hero_cta1: "احجز حصتي المجانية", hero_cta2: "شاهد الأسعار",
+    stat1: "عضو نشيط", stat2: "حصة في الأسبوع", stat3: "مدرباً معتمداً", stat4: "مساحة للتدريب",
+    marquee: ["كمال الأجسام", "كروس فيت", "ملاكمة", "يوغا", "HIIT", "كارديو", "فضاء النساء", "تدريب خاص"],
+    prog_eyebrow: "برامجنا", prog_title: "تدريب لكل هدف", prog_lead: "إنقاص الوزن، بناء العضلات أو اللياقة فقط: اختر رياضتك ومدربونا يتكلفون بالباقي.",
+    programs: [
+      ["كمال الأجسام", "آلات وأوزان حرة ومتابعة شخصية لزيادة القوة.", "كل المستويات"],
+      ["كروس فيت", "حصص مكثفة في مجموعات صغيرة: قوة، كارديو وتحدٍّ للذات.", "متوسط"],
+      ["ملاكمة", "تقنيات، كيس الملاكمة واللياقة البدنية مع بطل سابق.", "كل المستويات"],
+      ["HIIT", "30 دقيقة لحرق أكبر قدر من السعرات.", "متوسط"],
+      ["يوغا ومرونة", "مرونة، تنفس واسترجاع.", "مبتدئ"],
+      ["تدريب خاص", "مدرب خاص بك مع برنامج غذائي.", "حسب الطلب"]
+    ],
+    sch_eyebrow: "جدول الحصص", sch_title: "اختر الوقت المناسب لك", sch_lead: "أكثر من 40 حصة جماعية في الأسبوع. الأماكن محدودة، احجز مسبقاً.",
+    days: ["الإثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"], spots: n => `${n} أماكن متبقية`, full: "ممتلئ", book: "احجز", booked: c => `تم إرسال طلب حصة ${c} عبر واتساب`,
+    price_eyebrow: "الاشتراكات", price_title: "أسعار واضحة بدون رسوم خفية", price_lead: "بدون التزام في الاشتراك الشهري. رسوم التسجيل مجانية هذا الشهر.",
+    bill_month: "شهري", bill_year: "سنوي", per_month: "درهم / شهر", billed_year: t => `أي ${t} درهم تدفع مرة في السنة`, popular: "الأكثر طلباً", choose: "اختر",
+    plans: [
+      ["Basic", ["قاعة الأوزان والكارديو", "غرف تبديل الملابس والخزائن", "تطبيق لمتابعة التقدم", "الحصص الجماعية", "التدريب الخاص"], 3],
+      ["Premium", ["قاعة الأوزان والكارديو", "غرف تبديل الملابس والخزائن", "تطبيق لمتابعة التقدم", "حصص جماعية غير محدودة", "حصة تدريب خاص في الشهر"], 5],
+      ["Elite", ["قاعة الأوزان والكارديو", "غرف الملابس والخزائن والساونا", "تطبيق لمتابعة التقدم", "حصص جماعية غير محدودة", "4 حصص تدريب خاص + برنامج غذائي"], 5]
+    ],
+    coach_eyebrow: "الفريق", coach_title: "مدربون يدفعونك إلى الأمام",
+    coaches: [["ياسين", "كمال الأجسام والقوة", "8 سنوات من الخبرة في الإعداد البدني."], ["سلمى", "يوغا وفضاء النساء", "المرونة، القوام واستعادة اللياقة."], ["عمر", "ملاكمة", "ملاكم هاوٍ سابق، تقنيات وكارديو."], ["حمزة", "كروس فيت و HIIT", "مدرب معتمد في التدريب الوظيفي."]],
+    bmi_eyebrow: "أداة مجانية", bmi_title: "احسب مؤشر كتلة الجسم", bmi_lead: "مؤشر كتلة الجسم يعطيك فكرة أولية عن نقطة انطلاقك. سيقوم مدربك بتقييم كامل خلال الحصة التجريبية.",
+    bmi_under: "نحافة", bmi_normal: "طبيعي", bmi_over: "وزن زائد", bmi_obese: "سمنة", bmi_h: "الطول (سم)", bmi_w: "الوزن (كلغ)", bmi_btn: "احسب", bmi_hint: "أدخل طولك ووزنك.",
+    bmi_msg: { under: "برنامج زيادة الكتلة العضلية يمكن أن يساعدك.", normal: "رائع! الكروس فيت أو كمال الأجسام سيساعدانك على التقدم.", over: "HIIT والكارديو مثاليان للبداية.", obese: "التدريب الخاص سيرافقك خطوة بخطوة." },
+    bmi_your: "مؤشرك",
+    gal_eyebrow: "القاعة", gal_title: "900 م² من المعدات الحديثة",
+    trial_eyebrow: "تجربة مجانية", trial_title: "حصتك الأولى مجانية", trial_lead: "تعال واكتشف القاعة بدون أي التزام. سيستقبلك مدرب ويحضر لك برنامجاً حسب هدفك.",
+    perk1: "تقييم مع مدرب", perk1d: "الهدف، المستوى، المؤشر والنصائح.", perk2: "الولوج لكل الحصص", perk2d: "طيلة يوم التجربة.", perk3: "تأكيد عبر واتساب", perk3d: "رد في أقل من ساعة.",
+    f_name: "الاسم الكامل", f_phone: "الهاتف", f_goal: "الهدف", f_date: "التاريخ المفضل", g1: "إنقاص الوزن", g2: "بناء العضلات", g3: "اللياقة البدنية", g4: "التحضير لمنافسة",
+    f_btn: "احجز عبر واتساب", f_note: "الاستمارة تفتح واتساب مع طلبك مكتوباً.",
+    wa_trial: (n, p, g, d) => `السلام عليكم أطلس فيت، أريد حجز حصتي المجانية.\nالاسم: ${n}\nالهاتف: ${p}\nالهدف: ${g}\nالتاريخ: ${d}`,
+    wa_class: (c, d, t) => `السلام عليكم، أريد حجز حصة ${c} (${d} على الساعة ${t}).`, wa_plan: p => `السلام عليكم، أنا مهتم باشتراك ${p}.`,
+    faq_title: "أسئلة شائعة",
+    faq: [["هل أحتاج إلى شهادة طبية؟", "يُنصح بها، خاصة إذا كنت تعود للرياضة بعد انقطاع طويل. سيطرح عليك المدرب بعض الأسئلة خلال التقييم."], ["هل يوجد فضاء خاص بالنساء؟", "نعم، قاعة وغرف ملابس خاصة، مع مدربات وحصص مخصصة."], ["هل يمكنني إيقاف اشتراكي مؤقتاً؟", "نعم، حتى 30 يوماً في السنة (سفر، امتحانات، مرض) في اشتراكي Premium و Elite."], ["كيف يمكنني الدفع؟", "نقداً، بالبطاقة البنكية في الاستقبال أو بتحويل بنكي."]],
+    ct_eyebrow: "موقعنا", ct_title: "مرحباً بزيارتك", ct_addr: "العنوان", ct_addr_v: "شارع محمد الخامس، تابريكت، سلا", ct_hours: "أوقات العمل", ct_hours_v: "الإثنين – السبت: 6 ص – 11 ل · الأحد: 8 ص – 8 م", ct_phone: "الهاتف", ct_ladies: "فضاء النساء", ct_ladies_v: "قاعة وغرف ملابس خاصة ومدربات.",
+    foot: "© 2026 أطلس فيت (تجريبي). موقع من إنجاز يوسف الداحي.", title: "أطلس فيت — نادي رياضي في سلا (تجريبي)"
+  }
+};
+
+const PROGRAM_IMG = ["photo-1581009146145-b5ef050c2e1e", "photo-1517963879433-6ad2b056d712", "photo-1549719386-74dfcbf7dbed", "photo-1601422407692-ec4eeec1d9b3", "photo-1544367567-0f2fcb009e0b", "photo-1571019614242-c5c5dee9f50b"];
+const COACH_IMG = ["photo-1567013127542-490d757e51fc", "photo-1518611012118-696072aa579a", "photo-1595078475328-1ab05d0a6a0e", "photo-1594381898411-846e7d193883"];
+const PRICES = [199, 349, 549];
+// [time, programIndex, coachIndex, spotsLeft]
+const SCHEDULE = [
+  [["07:00", 0, 0, 8], ["12:30", 3, 3, 3], ["18:00", 1, 3, 0], ["19:30", 2, 2, 6], ["20:30", 4, 1, 10]],
+  [["07:00", 3, 3, 5], ["09:00", 4, 1, 12], ["18:30", 2, 2, 2], ["20:00", 1, 3, 7]],
+  [["07:00", 0, 0, 9], ["12:30", 3, 3, 4], ["18:00", 1, 3, 1], ["19:30", 4, 1, 8], ["21:00", 2, 2, 5]],
+  [["07:00", 3, 3, 6], ["09:00", 4, 1, 11], ["18:30", 2, 2, 0], ["20:00", 1, 3, 4]],
+  [["07:00", 0, 0, 10], ["12:30", 3, 3, 2], ["17:00", 4, 1, 9], ["19:00", 1, 3, 6]],
+  [["09:00", 1, 3, 3], ["10:30", 4, 1, 7], ["12:00", 2, 2, 5], ["16:00", 3, 3, 8]]
+];
+
+let lang = "fr", day = (new Date().getDay() + 6) % 7, billing = "month";
+if (day > 5) day = 5;
+const $ = s => document.querySelector(s);
+const t = k => T[lang][k];
+
+function toast(msg) { const el = $("#toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 2600); }
+function openWA(text) { window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, "_blank", "noopener"); }
+
+function renderPrograms() {
+  $("#programGrid").innerHTML = t("programs").map(([n, d, l], i) => `
+    <article class="program reveal in"><img src="${U(PROGRAM_IMG[i], 700)}" alt="${n}" loading="lazy">
+      <span class="level">${l}</span><div class="overlay"><h3>${n}</h3><p>${d}</p></div></article>`).join("");
+}
+function renderDays() {
+  $("#days").innerHTML = t("days").map((d, i) => `<button class="${i === day ? "active" : ""}" data-day="${i}">${d}</button>`).join("");
+}
+function renderClasses() {
+  const progs = t("programs"), coaches = t("coaches");
+  $("#classes").innerHTML = SCHEDULE[day].map(([time, p, c, s], i) => `
+    <div class="class-row"><time>${time}</time>
+      <div><h4>${progs[p][0]}</h4><div class="coach"><i class="ri-user-line"></i> ${coaches[c][0]}</div></div>
+      <span class="spots ${s <= 3 ? "low" : ""}">${s === 0 ? t("full") : t("spots")(s)}</span>
+      <button class="btn ${s === 0 ? "btn-ghost" : "btn-lime"}" data-class="${i}" ${s === 0 ? "disabled style='opacity:.4;cursor:not-allowed'" : ""}>${t("book")}</button>
+    </div>`).join("");
+}
+function renderPlans() {
+  $("#plans").innerHTML = t("plans").map(([n, feats, on], i) => {
+    const monthly = billing === "month" ? PRICES[i] : Math.round(PRICES[i] * 0.8);
+    const note = billing === "year" ? t("billed_year")(monthly * 12) : "&nbsp;";
+    return `<div class="plan ${i === 1 ? "featured" : ""} reveal in">
+      ${i === 1 ? `<span class="tag">${t("popular")}</span>` : ""}
+      <h3>${n}</h3><div class="price"><strong>${monthly}</strong><span>${t("per_month")}</span></div>
+      <div class="note">${note}</div>
+      <ul>${feats.map((f, j) => `<li class="${j < on ? "" : "off"}"><i class="${j < on ? "ri-check-line" : "ri-close-line"}"></i>${f}</li>`).join("")}</ul>
+      <button class="btn ${i === 1 ? "btn-lime" : "btn-ghost"}" data-plan="${n}">${t("choose")}</button></div>`;
+  }).join("");
+}
+function renderCoaches() {
+  $("#coachGrid").innerHTML = t("coaches").map(([n, r, d], i) => `
+    <div class="coach-card reveal in"><img src="${U(COACH_IMG[i], 500)}" alt="${n}" loading="lazy">
+      <div class="body"><h3>${n}</h3><div class="role">${r}</div><p>${d}</p></div></div>`).join("");
+}
+function renderFaq() { $("#faqList").innerHTML = t("faq").map(([q, a], i) => `<details class="reveal in" ${i === 0 ? "open" : ""}><summary>${q}</summary><p>${a}</p></details>`).join(""); }
+function renderMarquee() { const items = t("marquee").map(m => `<span>${m}</span>`).join(""); $("#marquee").innerHTML = items + items; }
+
+let lastBmi = null;
+function showBmi() {
+  const h = +$("#h").value / 100, w = +$("#w").value;
+  if (!h || !w) return;
+  const bmi = w / (h * h);
+  const k = bmi < 18.5 ? "under" : bmi < 25 ? "normal" : bmi < 30 ? "over" : "obese";
+  lastBmi = bmi;
+  const val = bmi.toFixed(1).replace(".", lang === "en" ? "." : ",");
+  $("#bmiResult").innerHTML = `<div class="muted" style="font-size:.85rem">${t("bmi_your")}</div><strong>${val}</strong> · <b>${t("bmi_" + k)}</b><div class="muted" style="margin-top:6px">${t("bmi_msg")[k]}</div>`;
+  document.querySelectorAll("#scale div").forEach(d => d.classList.toggle("on", d.dataset.k === k));
+}
+
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+  document.title = t("title");
+  document.querySelectorAll("[data-i18n]").forEach(el => { const v = t(el.dataset.i18n); if (typeof v === "string") el.textContent = v; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => el.innerHTML = t(el.dataset.i18nHtml));
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("active", b.dataset.lang === l));
+  renderMarquee(); renderPrograms(); renderDays(); renderClasses(); renderPlans(); renderCoaches(); renderFaq();
+  if (lastBmi) showBmi();
+  try { localStorage.setItem("atlasfit-lang", l); } catch (e) {}
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("button, a");
+  if (!b) return;
+  if (b.dataset.lang) setLang(b.dataset.lang);
+  if (b.dataset.day) { day = +b.dataset.day; renderDays(); renderClasses(); }
+  if (b.dataset.billing) { billing = b.dataset.billing; document.querySelectorAll(".billing button").forEach(x => x.classList.toggle("active", x === b)); renderPlans(); }
+  if (b.dataset.class !== undefined && !b.disabled) {
+    const [time, p] = SCHEDULE[day][+b.dataset.class]; const name = t("programs")[p][0];
+    openWA(t("wa_class")(name, t("days")[day], time)); toast(t("booked")(name));
+  }
+  if (b.dataset.plan) openWA(t("wa_plan")(b.dataset.plan));
+  if (b.id === "menuBtn") $("#navLinks").classList.toggle("open");
+  if (b.closest("#navLinks")) $("#navLinks").classList.remove("open");
+});
+
+$("#bmiForm").addEventListener("submit", e => { e.preventDefault(); showBmi(); });
+$("#trialForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const goal = $("#goal").selectedOptions[0].textContent;
+  openWA(t("wa_trial")($("#name").value.trim(), $("#phone").value.trim(), goal, $("#date").value));
+});
+const today = new Date(); $("#date").min = today.toISOString().slice(0, 10);
+today.setDate(today.getDate() + 1); $("#date").value = today.toISOString().slice(0, 10);
+
+// Counters
+const counters = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  const el = en.target, end = +el.dataset.count, suf = el.dataset.suffix || "+", start = performance.now();
+  const step = now => { const p = Math.min((now - start) / 1400, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))).toLocaleString("fr-FR") + suf; if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step); counters.unobserve(el);
+}), { threshold: .5 });
+document.querySelectorAll("[data-count]").forEach(el => counters.observe(el));
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+let saved = "fr"; try { saved = localStorage.getItem("atlasfit-lang") || "fr"; } catch (e) {}
+setLang(saved);
+</script>
+</body>
+</html>
